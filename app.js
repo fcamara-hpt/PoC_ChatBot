@@ -19,7 +19,7 @@ var w_conversation = watson.conversation({
 var workspace = process.env.WORKSPACE_ID || 'workspaceId';
 
 app.get('/', function (req, res) {
-	res.send('Chatbot Watson for Messenger.')
+	res.sendfile(__dirname + '/public/index.html');
 })
 
 app.get('/politica', function (req, res) {
