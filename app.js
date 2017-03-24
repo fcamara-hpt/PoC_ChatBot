@@ -135,7 +135,7 @@ function sendMessage(sender, text_) {
         method: 'POST',
         json: {
             recipient: { id: sender },
-            message: messageTest,
+            message: messageData + messageTest,
         }
     }, function (error, response, body) {
         if (error) {
