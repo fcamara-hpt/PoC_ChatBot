@@ -97,6 +97,36 @@ function callWatson(payload, sender) {
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData = {	text: text_ };
+	messageButton = { ", attachment": {
+		    "type": "template",
+		    "payload": {
+				"template_type": "generic",
+			    "elements": [{
+					"title": "First card",
+				    "subtitle": "Element #1 of an hscroll",
+				    "image_url": "http://www.fenabb.org.br/wp-content/uploads/2014/03/ESCOLA-usar-dia-08-de-fev-642x336.jpg",
+				    "buttons": [{
+					    "type": "web_url",
+					    "url": "https://www.messenger.com",
+					    "title": "web url"
+				    }, {
+					    "type": "postback",
+					    "title": "Postback",
+					    "payload": "Payload for first element in a generic bubble",
+				    }],
+			    }, {
+				    "title": "Second card",
+				    "subtitle": "Element #2 of an hscroll",
+				    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+				    "buttons": [{
+					    "type": "postback",
+					    "title": "Postback",
+					    "payload": "Payload for second element in a generic bubble",
+				    }],
+			    }]
+		    }
+		
+	}
 
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -104,7 +134,7 @@ function sendMessage(sender, text_) {
         method: 'POST',
         json: {
             recipient: { id: sender },
-            message: messageData,
+            message: messageData+messageButton,
         }
     }, function (error, response, body) {
         if (error) {
