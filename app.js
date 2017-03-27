@@ -99,7 +99,7 @@ function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData = {	text: text_ };
 
-	console,log("Exibindo mensagem");
+	console.log("Exibindo mensagem");
 	console.log(messageData);
 	
 	
