@@ -107,8 +107,6 @@ function sendMessage(sender, text_) {
 			    "payload": {
 					"template_type": "generic",
 				    "elements": [{
-						"title": "First card",
-					    "subtitle": "Element #1 of an hscroll",
 					    "buttons": [{
 						    "type": "postback",
 						    "title": "Sim",
