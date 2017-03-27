@@ -101,7 +101,7 @@ function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData1 = { text: text_ };	
 	
-	if(messageData1 == "Olá, você quer viajar?"){
+	if(messageData1.text == "Olá, você quer viajar?"){
 		console.log("Deu certo!");
 	}
 	
