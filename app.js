@@ -99,9 +99,9 @@ function callWatson(payload, sender) {
 
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
-	messageData = {	text: text_ };	
+	messageData1 = {	text: text_ };	
 	
-	messageData = {
+	messageData2 = {
 	    "attachment": {
 		    "type": "template",
 		    "payload": {
@@ -133,7 +133,8 @@ function sendMessage(sender, text_) {
 	    }
     }
 	
-	console.log("Aqui é a mensagem: " + messageData);
+	console.log("Aqui é a mensagem do Watson: " + messageData1);
+	console.log("Aqui é a mensagem botão: " + messageData2);
 	
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -141,7 +142,23 @@ function sendMessage(sender, text_) {
         method: 'POST',
         json: {
             recipient: { id: sender },
-            message: messageData,
+            message: messageData1,
+        }
+    }, function (error, response, body) {
+        if (error) {
+            console.log('Error sending message: ', error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+    
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: { access_token: token },
+        method: 'POST',
+        json: {
+            recipient: { id: sender },
+            message: messageData2,
         }
     }, function (error, response, body) {
         if (error) {
