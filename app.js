@@ -61,7 +61,7 @@ app.post('/webhook/', function (req, res) {
 
 		if (params) {
 			if (params.input) {
-				console.log(params);
+				console.log(params.context);
 				params.input = params.input.replace("\n","");
 				payload.input = { "text": params.input };
 			}
@@ -69,8 +69,6 @@ app.post('/webhook/', function (req, res) {
 				payload.context = params.context;
 			}
 		}
-		
-		console.log(payload);
 		
 		callWatson(payload, sender);
     }
@@ -101,11 +99,7 @@ function callWatson(payload, sender) {
 
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
-	messageData = {	text: text_ };
-
-	console.log("Exibindo mensagem");
-	console.log(messageData);
-	
+	messageData = {	text: text_ };	
 	
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
