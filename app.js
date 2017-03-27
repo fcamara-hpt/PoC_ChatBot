@@ -99,7 +99,11 @@ function callWatson(payload, sender) {
 
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
-	messageData1 = {	text: text_ };	
+	messageData1 = { text: text_ };	
+	
+	if(messageData1 == "Olá, você quer viajar?"){
+		console.log("Deu certo!");
+	}
 	
 	messageData2 = {
 	    "attachment": {
