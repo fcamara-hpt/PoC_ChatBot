@@ -102,23 +102,36 @@ function sendMessage(sender, text_) {
 	
 	if(messageData1.text === "Olá, você quer viajar?"){
 		messageData2 = {
-	    "attachment": {
-		    "type": "template",
-		    "payload": {
-				"template_type": "generic",
-			    "elements": [{
-				    "buttons": [{
-					    "type": "postback",
-					    "title": "Sim"
+		    "attachment": {
+			    "type": "template",
+			    "payload": {
+					"template_type": "generic",
+				    "elements": [{
+						"title": "First card",
+					    "subtitle": "Element #1 of an hscroll",
+					    "image_url": "http://www.fenabb.org.br/wp-content/uploads/2014/03/ESCOLA-usar-dia-08-de-fev-642x336.jpg",
+					    "buttons": [{
+						    "type": "postback",
+						    "title": "Sim",
+						    "payload": "Payload for first element in a generic bubble",
+					    }, {
+						    "type": "postback",
+						    "title": "Não",
+						    "payload": "Payload for first element in a generic bubble",
+					    }],
 				    }, {
-					    "type": "postback",
-					    "title": "Não",
-					    "payload": "Olá, você quer viajar?",
-				    }],
-			    }]
+					    "title": "Second card",
+					    "subtitle": "Element #2 of an hscroll",
+					    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+					    "buttons": [{
+						    "type": "postback",
+						    "title": "Postback",
+						    "payload": "Payload for second element in a generic bubble",
+					    }],
+				    }]
 			    }
 		    }
-	    };
+	    }
 	
 		
 		request({
