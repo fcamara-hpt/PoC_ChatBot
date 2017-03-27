@@ -99,6 +99,7 @@ function callWatson(payload, sender) {
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData1 = { text: text_ };	
+	count = 0;
 	
 	if(messageData1.text === "Olá, você quer viajar?"){
 		messageData2 = {
@@ -107,7 +108,7 @@ function sendMessage(sender, text_) {
 			    "payload": {
 					"template_type": "generic",
 				    "elements": [{
-				    	"title": "",
+				    	"title": "Olá, você quer viajar?",
 					    "buttons": [{
 						    "type": "postback",
 						    "title": "Sim",
@@ -138,11 +139,14 @@ function sendMessage(sender, text_) {
 	            console.log('Error: ', response.body.error);
 	        }
 	    });
+	    
+	    count = 1;
+	    
 		}
 	
 	
-	
-    request({
+	if(!count){
+		request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: { access_token: token },
         method: 'POST',
@@ -157,6 +161,7 @@ function sendMessage(sender, text_) {
             console.log('Error: ', response.body.error);
         }
     });
+	}
     
     
 }
