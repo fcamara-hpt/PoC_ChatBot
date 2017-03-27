@@ -80,7 +80,6 @@ function callWatson(payload, sender) {
 		console.log(convResults);
 		contexid = convResults.context;
 		
-		
         if (err) {
             return responseToRequest.send("Erro.");
         }
@@ -101,47 +100,45 @@ function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData1 = { text: text_ };	
 	
-	console.log(messageData1);
-	console.log(messageData1.text);
-	
 	if(messageData1.text === "Olá, você quer viajar?"){
-		console.log("Deu certo!");
-	}
-	
-	messageData2 = {
+		messageData2 = {
 	    "attachment": {
 		    "type": "template",
 		    "payload": {
 				"template_type": "generic",
 			    "elements": [{
-					"title": "Card Teste 1",
-				    "subtitle": "1º Elemento",
-				    "image_url": "http://1.bp.blogspot.com/-sFhEBRhVscI/TpkAUfkrH3I/AAAAAAAAAEc/Pq4OHod0MJI/s1600/teste1.png",
 				    "buttons": [{
-					    "type": "web_url",
-					    "url": "https://www.messenger.com",
-					    "title": "web url"
+					    "type": "postback",
+					    "title": "Sim"
 				    }, {
 					    "type": "postback",
-					    "title": "Postback",
-					    "payload": "Esta é a mensagem do primeiro Card",
-				    }],
-			    }, {
-				    "title": "Card Teste 2",
-				    "subtitle": "2º Elemento",
-				    "image_url": "https://thumbs.dreamstime.com/z/teste-palavra-no-teclado-22545850.jpg",
-				    "buttons": [{
-					    "type": "postback",
-					    "title": "Postback",
-					    "payload": "Mensagem do segundo Card aqui",
+					    "title": "Não",
+					    "payload": "Olá, você quer viajar?",
 				    }],
 			    }]
+			    }
 		    }
 	    }
-    }
 	
-	console.log("Aqui é a mensagem do Watson: " + messageData1);
-	console.log("Aqui é a mensagem botão: " + messageData2);
+		
+		request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: { access_token: token },
+        method: 'POST',
+        json: {
+            recipient: { id: sender },
+            message: messageData2,
+        }
+    }, function (error, response, body) {
+        if (error) {
+            console.log('Error sending message: ', error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+	}
+	
+	
 	
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -159,21 +156,7 @@ function sendMessage(sender, text_) {
         }
     });
     
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: { access_token: token },
-        method: 'POST',
-        json: {
-            recipient: { id: sender },
-            message: messageData2,
-        }
-    }, function (error, response, body) {
-        if (error) {
-            console.log('Error sending message: ', error);
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error);
-        }
-    });
+    
 }
 
 var token = "EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD";
