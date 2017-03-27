@@ -107,6 +107,7 @@ function sendMessage(sender, text_) {
 			    "payload": {
 					"template_type": "generic",
 				    "elements": [{
+				    	"title": "",
 					    "buttons": [{
 						    "type": "postback",
 						    "title": "Sim",
