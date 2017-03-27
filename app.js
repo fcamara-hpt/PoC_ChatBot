@@ -98,6 +98,7 @@ function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData = {	text: text_ };
 	console.log(text_);
+	
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: { access_token: token },
