@@ -68,6 +68,9 @@ app.post('/webhook/', function (req, res) {
 				payload.context = params.context;
 			}
 		}
+		
+		console.log(payload);
+		
 		callWatson(payload, sender);
     }
     res.sendStatus(200);
@@ -118,7 +121,7 @@ function sendMessage(sender, text_) {
             console.log('Error: ', response.body.error);
         }
     });
-};
+}
 
 var token = "EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD";
 var host = (process.env.VCAP_APP_HOST || 'localhost');
