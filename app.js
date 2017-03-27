@@ -61,6 +61,7 @@ app.post('/webhook/', function (req, res) {
 
 		if (params) {
 			if (params.input) {
+				console.log(params);
 				params.input = params.input.replace("\n","");
 				payload.input = { "text": params.input };
 			}
@@ -124,6 +125,6 @@ function sendMessage(sender, text_) {
 }
 
 var token = "EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD";
-var host = (process.env.VCAP_APP_HOST || 'localhost');
-var port = (process.env.VCAP_APP_PORT || 3000);
+var host = process.env.VCAP_APP_HOST || 'localhost';
+var port = process.env.VCAP_APP_PORT || 3000;
 app.listen(port, host);
