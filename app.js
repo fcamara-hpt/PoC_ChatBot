@@ -59,9 +59,9 @@ app.post('/webhook/', function (req, res) {
 			workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
 		};
 
+		
 		if (params) {
 			if (params.input) {
-				console.log(params.context);
 				params.input = params.input.replace("\n","");
 				payload.input = { "text": params.input };
 			}
@@ -100,6 +100,9 @@ function callWatson(payload, sender) {
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData = {	text: text_ };	
+	
+	
+	console.log("Aqui são é a mensagem: " + messageData.text);
 	
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
