@@ -75,7 +75,7 @@ app.post('/webhook/', function (req, res) {
 
 function callWatson(payload, sender) {
 	w_conversation.message(payload, function (err, convResults) {
-		 console.log(convResults);
+		console.log(convResults);
 		contexid = convResults.context;
 		
         if (err) {
@@ -97,7 +97,7 @@ function callWatson(payload, sender) {
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData = {	text: text_ };
-
+	console.log(text);
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: { access_token: token },
