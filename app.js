@@ -101,7 +101,7 @@ function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData = {	text: text_ };	
 	
-	messageData = messageData + {
+	messageData = {
 	    "attachment": {
 		    "type": "template",
 		    "payload": {
@@ -133,7 +133,7 @@ function sendMessage(sender, text_) {
 	    }
     }
 	
-	console.log("Aqui é a mensagem: " + messageData.text);
+	console.log("Aqui é a mensagem: " + messageData);
 	
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
