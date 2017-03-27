@@ -78,6 +78,7 @@ function callWatson(payload, sender) {
 		console.log(convResults);
 		contexid = convResults.context;
 		
+		
         if (err) {
             return responseToRequest.send("Erro.");
         }
@@ -97,8 +98,10 @@ function callWatson(payload, sender) {
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageData = {	text: text_ };
-	
+
+	console,log("Exibindo mensagem");
 	console.log(messageData);
+	
 	
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
