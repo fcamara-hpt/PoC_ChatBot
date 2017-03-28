@@ -102,9 +102,8 @@ function sendMessage(sender, text_) {
 	text2 = text_.substring(0, 4);
 	messageWatsonHttp = { text: text2 };
 	
-	console.log("Mensagem do Watson: " + messageWatson.text);
 	
-	if(messageWatsonChar.text === "http"){
+	if(messageWatsonHttp.text === "http"){
 		messageData = {
 		    "attachment": {
 			    "type": "template",
@@ -280,7 +279,7 @@ function sendMessage(sender, text_) {
 	    
 	}
 	
-	if(messageWatson.text === "rio"){
+	/* if(messageWatson.text === "rio"){
 		messageData = {
 		    "attachment": {
 			    "type": "template",
@@ -315,39 +314,9 @@ function sendMessage(sender, text_) {
 	        }
 	    });
 	    
-	}
+	} */
 	
-	request({
-	        url: 'https://graph.facebook.com/v2.6/me/messages',
-	        qs: { access_token: token },
-	        method: 'POST',
-	        json: {
-	            recipient: { id: sender },
-	            message: messageWatson,
-	        }
-	    }, function (error, response, body) {
-	        if (error) {
-	            console.log('Error sending message: ', error);
-	        } else if (response.body.error) {
-	            console.log('Error: ', response.body.error);
-	        }
-	  });
 	  
-	  request({
-	        url: 'https://graph.facebook.com/v2.6/me/messages',
-	        qs: { access_token: token },
-	        method: 'POST',
-	        json: {
-	            recipient: { id: sender },
-	            message: messageWatsonHttp,
-	        }
-	    }, function (error, response, body) {
-	        if (error) {
-	            console.log('Error sending message: ', error);
-	        } else if (response.body.error) {
-	            console.log('Error: ', response.body.error);
-	        }
-	  });
 }
 
 var token = "EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD";
