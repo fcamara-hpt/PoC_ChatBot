@@ -190,7 +190,7 @@
 			}
 			
 			case 'quer_viajar2':{
-				messageData = { text: "Perfeito, qual é o seu destino?" }
+				messageData = { text: "Para onde deseja ir?" };
 
 				request({
 			        url: 'https://graph.facebook.com/v2.6/me/messages',
