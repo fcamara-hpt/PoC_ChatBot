@@ -186,7 +186,7 @@ function sendMessage(sender, text_) {
 	    });
 	}
 	
-	if(messageWatson.text === "quer_viajar2"){
+	if(messageWatson.text === "outro"){
 		messageData = "Perfeito, qual é o seu destino?";
 		
 		request({
