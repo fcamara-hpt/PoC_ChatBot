@@ -99,7 +99,8 @@ function callWatson(payload, sender) {
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageWatson = { text: text_ };
-	messageWatsonHttp = text_.substring(0, 4);
+	text2 = text_.substring(0, 4);
+	messageWatsonHttp = { text: text2 };
 	
 	console.log("Mensagem do Watson: " + messageWatson.text);
 	
