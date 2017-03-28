@@ -220,7 +220,7 @@ function sendMessage(sender, text_) {
 					    	"title": "Não quer? Tem certeza? Visualize nossas principais ofertas e retorne sempre!! ",
 						    "buttons": [{
 							    "type": "web_url",
-							    "title": "Destinos até mil reais.",
+							    "title": "Clique aqui.",
 							    "url": "http://www.cvc.com.br/promocao/destinos-ate-mil-reais.aspx",
 						    }],
 					    }]
