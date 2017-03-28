@@ -206,6 +206,42 @@ function sendMessage(sender, text_) {
 	    });
 	}
 	
+	if(messageWatson.text === "nao_quer_viajar"){
+		messageData = {
+		    "attachment": {
+			    "type": "template",
+			    "payload": {
+					"template_type": "generic",
+				    "elements": [{
+				    	"title": "Não quer? Tem certeza? Visualize nossas principais ofertas e retorne sempre!! ",
+					    "buttons": [{
+						    "type": "web_url",
+						    "title": "Destinos até mil reais.",
+						    "url": "http://www.cvc.com.br/promocao/destinos-ate-mil-reais.aspx",
+					    }],
+				    }]
+			    }
+		    }
+	    };
+
+		request({
+	        url: 'https://graph.facebook.com/v2.6/me/messages',
+	        qs: { access_token: token },
+	        method: 'POST',
+	        json: {
+	            recipient: { id: sender },
+	            message: messageData,
+	        }
+	    }, function (error, response, body) {
+	        if (error) {
+	            console.log('Error sending message: ', error);
+	        } else if (response.body.error) {
+	            console.log('Error: ', response.body.error);
+	        }
+	    });
+	    
+	}
+	
 	if(messageWatson.text === "rio"){
 		messageData = {
 		    "attachment": {
