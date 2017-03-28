@@ -162,7 +162,7 @@ function sendMessage(sender, text_) {
 						    "payload": "rio de janeiro",
 					    }, {
 						    "type": "postback",
-						    "title": "Outro (Informe qual)",
+						    "title": "Outro",
 						    "payload": "outro",
 					    }],
 				    }]
@@ -211,7 +211,7 @@ function sendMessage(sender, text_) {
 		}
 		
 		case 'nao_quer_viajar': {
-				messageData = {
+			messageData = {
 			    "attachment": {
 				    "type": "template",
 				    "payload": {
@@ -256,7 +256,7 @@ function sendMessage(sender, text_) {
 			    "payload": {
 					"template_type": "generic",
 				    "elements": [{
-				    	"title": "Perfeito, veja essas passagens sua pesquisa:",
+				    	"title": "Perfeito, veja essas passagens para sua pesquisa:",
 				    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 					    "buttons": [{
 					    "type": "web_url",
@@ -286,110 +286,6 @@ function sendMessage(sender, text_) {
 	}
 
 	/*
-	if(messageWatson.text === "inicio_mensagem"){
-		messageData = {
-		    "attachment": {
-			    "type": "template",
-			    "payload": {
-					"template_type": "generic",
-				    "elements": [{
-				    	"title": "Olá, você quer viajar?",
-					    "buttons": [{
-						    "type": "postback",
-						    "title": "Sim",
-						    "payload": "sim",
-					    }, {
-						    "type": "postback",
-						    "title": "Não",
-						    "payload": "não",
-					    }],
-				    }]
-			    }
-		    }
-	    }
-
-		request({
-	        url: 'https://graph.facebook.com/v2.6/me/messages',
-	        qs: { access_token: token },
-	        method: 'POST',
-	        json: {
-	            recipient: { id: sender },
-	            message: messageData,
-	        }
-	    }, function (error, response, body) {
-	        if (error) {
-	            console.log('Error sending message: ', error);
-	        } else if (response.body.error) {
-	            console.log('Error: ', response.body.error);
-	        }
-	    });
-
-	}
-
-	if(messageWatson.text === "quer_viajar"){
-		messageData = {
-		    "attachment": {
-			    "type": "template",
-			    "payload": {
-					"template_type": "generic",
-				    "elements": [{
-				    	"title": "Perfeito, qual é o seu destino?",
-					    "buttons": [{
-						    "type": "postback",
-						    "title": "São Paulo",
-						    "payload": "sao paulo",
-					    }, {
-						    "type": "postback",
-						    "title": "Rio de Janeiro",
-						    "payload": "rio de janeiro",
-					    }, {
-						    "type": "postback",
-						    "title": "Outro (Informe qual)",
-						    "payload": "outro",
-					    }],
-				    }]
-			    }
-		    }
-
-		};
-
-		request({
-	        url: 'https://graph.facebook.com/v2.6/me/messages',
-	        qs: { access_token: token },
-	        method: 'POST',
-	        json: {
-	            recipient: { id: sender },
-	            message: messageData,
-	        }
-	    }, function (error, response, body) {
-	        if (error) {
-	            console.log('Error sending message: ', error);
-	        } else if (response.body.error) {
-	            console.log('Error: ', response.body.error);
-	        }
-	    });
-	}
-
-	if(messageWatson.text === "quer_viajar2"){
-		messageData = { text: "Perfeito, qual é o seu destino?" }
-
-		request({
-	        url: 'https://graph.facebook.com/v2.6/me/messages',
-	        qs: { access_token: token },
-	        method: 'POST',
-	        json: {
-	            recipient: { id: sender },
-	            message: messageData,
-	        }
-	    }, function (error, response, body) {
-	        if (error) {
-	            console.log('Error sending message: ', error);
-	        } else if (response.body.error) {
-	            console.log('Error: ', response.body.error);
-	        }
-	    });
-	}
-
 	if(messageWatson.text === "nao_quer_viajar"){
 		messageData = {
 		    "attachment": {
