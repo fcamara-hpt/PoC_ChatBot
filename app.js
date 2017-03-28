@@ -98,7 +98,7 @@ function callWatson(payload, sender) {
 
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
-	messageWatson = { text: text_ };	
+	messageWatson = { text: text_ };
 	
 	console.log("Mensagem do Watson: " + messageWatson.text);
 	
@@ -285,7 +285,7 @@ function sendMessage(sender, text_) {
 	        method: 'POST',
 	        json: {
 	            recipient: { id: sender },
-	            message: messageData,
+	            message: messageWatson,
 	        }
 	    }, function (error, response, body) {
 	        if (error) {
