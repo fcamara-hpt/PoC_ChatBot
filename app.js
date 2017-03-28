@@ -186,8 +186,8 @@ function sendMessage(sender, text_) {
 	    });
 	}
 	
-	if(messageWatson.text === "outro"){
-		messageData = "Perfeito, qual é o seu destino?";
+	if(messageWatson.text === "quer_viajar2"){
+		messageData = { text: "Perfeito, qual é o seu destino?" }
 		
 		request({
 	        url: 'https://graph.facebook.com/v2.6/me/messages',
