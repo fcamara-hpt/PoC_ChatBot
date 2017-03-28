@@ -114,7 +114,7 @@ function sendMessage(sender, text_) {
 				    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 					    "buttons": [{
 					    "type": "web_url",
-					    "url": "$text_",
+					    "url": text_,
 					    "title": "Pesquisar Voos"
 				    }],
 				    }]
@@ -316,6 +316,21 @@ function sendMessage(sender, text_) {
 	    
 	} */
 	
+	request({
+	        url: 'https://graph.facebook.com/v2.6/me/messages',
+	        qs: { access_token: token },
+	        method: 'POST',
+	        json: {
+	            recipient: { id: sender },
+	            message: messageWatson,
+	        }
+	    }, function (error, response, body) {
+	        if (error) {
+	            console.log('Error sending message: ', error);
+	        } else if (response.body.error) {
+	            console.log('Error: ', response.body.error);
+	        }
+	    });
 	  
 }
 
