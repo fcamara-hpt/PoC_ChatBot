@@ -100,7 +100,7 @@ function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageWatson = { text: text_ };	
 	
-	console.log(messageWatson.text);
+	console.log("Mensagem do Watson: " + messageWatson.text);
 	
 	if(messageWatson.text === "inicio_mensagem"){
 		messageData = {
@@ -122,7 +122,7 @@ function sendMessage(sender, text_) {
 				    }]
 			    }
 		    }
-	    };
+	    }
 
 		request({
 	        url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -149,7 +149,7 @@ function sendMessage(sender, text_) {
 			    "payload": {
 					"template_type": "generic",
 				    "elements": [{
-				    	"title": "Perfeito, qual o seu destino?",
+				    	"title": "Perfeito, qual é o seu destino?",
 					    "buttons": [{
 						    "type": "postback",
 						    "title": "São Paulo",
@@ -158,14 +158,6 @@ function sendMessage(sender, text_) {
 						    "type": "postback",
 						    "title": "Rio de Janeiro",
 						    "payload": "rio de janeiro",
-					    }, {
-						    "type": "postback",
-						    "title": "Salvador",
-						    "payload": "salvador",
-					    }, {
-						    "type": "postback",
-						    "title": "Porto Alegre",
-						    "payload": "porto alegre",
 					    }, {
 						    "type": "postback",
 						    "title": "Outro (Informe qual)",
