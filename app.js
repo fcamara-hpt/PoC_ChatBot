@@ -5,8 +5,8 @@ var watson = require('watson-developer-cloud');
 var app = express();
 var contexid = "";
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 var conversation_id = "";
 var w_conversation = watson.conversation({
@@ -20,11 +20,11 @@ var workspace = process.env.WORKSPACE_ID || 'workspaceId';
 
 app.get('/', function (req, res) {
 	res.send('Chatbot Watson for Messenger.');
-})
+});
 
 app.get('/politica', function (req, res) {
-	res.send('<h2>Política de privacidade para <a href=\'http://chatbot-watson-fc.mybluemix.net/\'>Chatbot Watson FC</a></h2><p>Todas as suas informações pessoais recolhidas, serão usadas para o ajudar a tornar a sua visita no nosso site o mais produtiva e agradável possível.</p><p>A garantia da confidencialidade dos dados pessoais dos utilizadores do nosso site é importante para o Chatbot Watson FC.</p><p>Todas as informações pessoais relativas a membros, assinantes, clientes ou visitantes que usem o Chatbot Watson FC serão tratadas em concordância com a Lei da Proteção de Dados Pessoais de 26 de outubro de 1998 (Lei n.º 67/98).</p><p>A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de nascimento e/ou outros.</p><p>O uso do Chatbot Watson FC pressupõe a aceitação deste Acordo de privacidade. A equipa do Chatbot Watson FC reserva-se ao direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade com regularidade de forma a estar sempre atualizado.</p><h2>Os anúncios</h2><p>Tal como outros websites, coletamos e utilizamos informação contida nos anúncios. A informação contida nos anúncios, inclui o seu endereço IP (Internet Protocol), o seu ISP (Internet Service Provider, como o Sapo, Clix, ou outro), o browser que utilizou ao visitar o nosso website (como o Internet Explorer ou o Firefox), o tempo da sua visita e que páginas visitou dentro do nosso website.</p><h2>Ligações a Sites de terceiros</h2><p>O Chatbot Watson FC possui ligações para outros sites, os quais, a nosso ver, podem conter informações / ferramentas úteis para os nossos visitantes. A nossa política de privacidade não é aplicada a sites de terceiros, pelo que, caso visite outro site a partir do nosso deverá ler a politica de privacidade do mesmo.</p><p>Não nos responsabilizamos pela política de privacidade ou conteúdo presente nesses mesmos sites.</p>')
-})
+	res.send('<h2>Política de privacidade para <a href=\'http://chatbot-watson-fc.mybluemix.net/\'>Chatbot Watson FC</a></h2><p>Todas as suas informações pessoais recolhidas, serão usadas para o ajudar a tornar a sua visita no nosso site o mais produtiva e agradável possível.</p><p>A garantia da confidencialidade dos dados pessoais dos utilizadores do nosso site é importante para o Chatbot Watson FC.</p><p>Todas as informações pessoais relativas a membros, assinantes, clientes ou visitantes que usem o Chatbot Watson FC serão tratadas em concordância com a Lei da Proteção de Dados Pessoais de 26 de outubro de 1998 (Lei n.º 67/98).</p><p>A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de nascimento e/ou outros.</p><p>O uso do Chatbot Watson FC pressupõe a aceitação deste Acordo de privacidade. A equipa do Chatbot Watson FC reserva-se ao direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade com regularidade de forma a estar sempre atualizado.</p><h2>Os anúncios</h2><p>Tal como outros websites, coletamos e utilizamos informação contida nos anúncios. A informação contida nos anúncios, inclui o seu endereço IP (Internet Protocol), o seu ISP (Internet Service Provider, como o Sapo, Clix, ou outro), o browser que utilizou ao visitar o nosso website (como o Internet Explorer ou o Firefox), o tempo da sua visita e que páginas visitou dentro do nosso website.</p><h2>Ligações a Sites de terceiros</h2><p>O Chatbot Watson FC possui ligações para outros sites, os quais, a nosso ver, podem conter informações / ferramentas úteis para os nossos visitantes. A nossa política de privacidade não é aplicada a sites de terceiros, pelo que, caso visite outro site a partir do nosso deverá ler a politica de privacidade do mesmo.</p><p>Não nos responsabilizamos pela política de privacidade ou conteúdo presente nesses mesmos sites.</p>');
+});
 
 app.get('/webhook/', function (req, res) {
     if (req.query['hub.verify_token'] === 'EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD') {
@@ -53,7 +53,7 @@ app.post('/webhook/', function (req, res) {
 			input: text,
 			// context: {"conversation_id": conversation_id}
 			context:contexid
-		}
+		};
 
 		var payload = {
 			workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
@@ -98,11 +98,12 @@ function callWatson(payload, sender) {
 
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
-	messageData1 = { text: text_ };	
-	count = 0;
+	messageWatson = { text: text_ };	
 	
-	if(messageData1.text === "Olá, você quer viajar?"){
-		messageData2 = {
+	console.log(messageWatson.text);
+	
+	if(messageWatson.text === "inicio_mensagem"){
+		messageData = {
 		    "attachment": {
 			    "type": "template",
 			    "payload": {
@@ -121,16 +122,15 @@ function sendMessage(sender, text_) {
 				    }]
 			    }
 		    }
-	    }
-	
-		
+	    };
+
 		request({
 	        url: 'https://graph.facebook.com/v2.6/me/messages',
 	        qs: { access_token: token },
 	        method: 'POST',
 	        json: {
 	            recipient: { id: sender },
-	            message: messageData2,
+	            message: messageData,
 	        }
 	    }, function (error, response, body) {
 	        if (error) {
@@ -140,30 +140,96 @@ function sendMessage(sender, text_) {
 	        }
 	    });
 	    
-	    count = 1;
-	    
-		}
-	
-	
-	if(!count){
-		request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: { access_token: token },
-        method: 'POST',
-        json: {
-            recipient: { id: sender },
-            message: messageData1,
-        }
-    }, function (error, response, body) {
-        if (error) {
-            console.log('Error sending message: ', error);
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error);
-        }
-    });
 	}
+	
+	if(messageWatson.text === "quer_viajar"){
+		messageData = {
+		    "attachment": {
+			    "type": "template",
+			    "payload": {
+					"template_type": "generic",
+				    "elements": [{
+				    	"title": "Perfeito, qual o seu destino?",
+					    "buttons": [{
+						    "type": "postback",
+						    "title": "São Paulo",
+						    "payload": "sao paulo",
+					    }, {
+						    "type": "postback",
+						    "title": "Rio de Janeiro",
+						    "payload": "rio de janeiro",
+					    }, {
+						    "type": "postback",
+						    "title": "Salvador",
+						    "payload": "salvador",
+					    }, {
+						    "type": "postback",
+						    "title": "Porto Alegre",
+						    "payload": "porto alegre",
+					    }, {
+						    "type": "postback",
+						    "title": "Outro (Informe qual)",
+						    "payload": "outro",
+					    }],
+				    }]
+			    }
+		    } 
     
-    
+		};
+		
+		request({
+	        url: 'https://graph.facebook.com/v2.6/me/messages',
+	        qs: { access_token: token },
+	        method: 'POST',
+	        json: {
+	            recipient: { id: sender },
+	            message: messageData,
+	        }
+	    }, function (error, response, body) {
+	        if (error) {
+	            console.log('Error sending message: ', error);
+	        } else if (response.body.error) {
+	            console.log('Error: ', response.body.error);
+	        }
+	    });
+	}
+	
+	if(messageWatson.text === "rio"){
+		messageData = {
+		    "attachment": {
+			    "type": "template",
+			    "payload": {
+					"template_type": "generic",
+				    "elements": [{
+				    	"title": "Perfeito, veja essas passagens para o Rio de Janeiro:",
+				    	"image_url": "https://cache-graphicslib.viator.com/graphicslib/thumbs360x240/16674/SITours/excurs-o-particular-ao-p-o-de-a-car-e-cristo-redentor-in-rio-de-janeiro-278478.jpg",
+					    "buttons": [{
+					    "type": "web_url",
+					    "url": "https://www.decolar.com/passagens-aereas/sao/rio/passagens-aereas-para-rio+de+janeiro-saindo-de-sao+paulo?from=SB",
+					    "title": "Passagens Rio"
+				    }],
+				    }]
+			    }
+		    }
+	    };
+
+		request({
+	        url: 'https://graph.facebook.com/v2.6/me/messages',
+	        qs: { access_token: token },
+	        method: 'POST',
+	        json: {
+	            recipient: { id: sender },
+	            message: messageData,
+	        }
+	    }, function (error, response, body) {
+	        if (error) {
+	            console.log('Error sending message: ', error);
+	        } else if (response.body.error) {
+	            console.log('Error: ', response.body.error);
+	        }
+	    });
+	    
+	}
 }
 
 var token = "EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD";
