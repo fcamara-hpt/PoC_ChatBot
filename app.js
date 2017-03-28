@@ -99,6 +99,7 @@ function callWatson(payload, sender) {
 function sendMessage(sender, text_) {
 	text_ = text_.substring(0, 319);
 	messageWatson = { text: text_ };
+	messageWatsonChar = messageWatson[0];
 	
 	console.log("Mensagem do Watson: " + messageWatson.text);
 	
@@ -286,6 +287,22 @@ function sendMessage(sender, text_) {
 	        json: {
 	            recipient: { id: sender },
 	            message: messageWatson,
+	        }
+	    }, function (error, response, body) {
+	        if (error) {
+	            console.log('Error sending message: ', error);
+	        } else if (response.body.error) {
+	            console.log('Error: ', response.body.error);
+	        }
+	  });
+	  
+	  request({
+	        url: 'https://graph.facebook.com/v2.6/me/messages',
+	        qs: { access_token: token },
+	        method: 'POST',
+	        json: {
+	            recipient: { id: sender },
+	            message: messageWatsonChar,
 	        }
 	    }, function (error, response, body) {
 	        if (error) {
