@@ -104,6 +104,42 @@ function sendMessage(sender, text_) {
 	
 	console.log("Mensagem do Watson: " + messageWatson.text);
 	
+	if(messageWatsonChar.text === "http"){
+		messageData = {
+		    "attachment": {
+			    "type": "template",
+			    "payload": {
+					"template_type": "generic",
+				    "elements": [{
+				    	"title": "Perfeito, veja essas passagens sua pesquisa:",
+				    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
+					    "buttons": [{
+					    "type": "web_url",
+					    "url": "$text_",
+					    "title": "Pesquisar Voos"
+				    }],
+				    }]
+			    }
+		    }
+	    };
+
+		request({
+	        url: 'https://graph.facebook.com/v2.6/me/messages',
+	        qs: { access_token: token },
+	        method: 'POST',
+	        json: {
+	            recipient: { id: sender },
+	            message: messageData,
+	        }
+	    }, function (error, response, body) {
+	        if (error) {
+	            console.log('Error sending message: ', error);
+	        } else if (response.body.error) {
+	            console.log('Error: ', response.body.error);
+	        }
+	    });
+	}
+	
 	if(messageWatson.text === "inicio_mensagem"){
 		messageData = {
 		    "attachment": {
