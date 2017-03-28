@@ -35,9 +35,9 @@ app.get('/webhook/', function (req, res) {
 
 app.post('/webhook/', function (req, res) {
 	var text = null;
-	
+
     messaging_events = req.body.entry[0].messaging;
-	for (i = 0; i < messaging_events.length; i++) {	
+	for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
 
@@ -48,7 +48,7 @@ app.post('/webhook/', function (req, res) {
 		}else{
 			break;
 		}
-		
+
 		var params = {
 			input: text,
 			// context: {"conversation_id": conversation_id}
@@ -59,7 +59,7 @@ app.post('/webhook/', function (req, res) {
 			workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
 		};
 
-		
+
 		if (params) {
 			if (params.input) {
 				params.input = params.input.replace("\n","");
@@ -69,7 +69,7 @@ app.post('/webhook/', function (req, res) {
 				payload.context = params.context;
 			}
 		}
-		
+
 		callWatson(payload, sender);
     }
     res.sendStatus(200);
@@ -79,11 +79,11 @@ function callWatson(payload, sender) {
 	w_conversation.message(payload, function (err, convResults) {
 		console.log(convResults);
 		contexid = convResults.context;
-		
+
         if (err) {
             return responseToRequest.send("Erro.");
         }
-		
+
 		if(convResults.context != null)
     	   conversation_id = convResults.context.conversation_id;
         if(convResults != null && convResults.output != null){
@@ -92,7 +92,7 @@ function callWatson(payload, sender) {
 				sendMessage(sender, convResults.output.text[i++]);
 			}
 		}
-            
+
     });
 }
 
@@ -102,6 +102,154 @@ function sendMessage(sender, text_) {
 	text2 = text_.substring(0, 4);
 	messageWatsonHttp = { text: text2 };
 	
+	
+	switch(messageWatson){
+		case 'inicio_mensagem': {
+			messageData = {
+		    "attachment": {
+			    "type": "template",
+			    "payload": {
+					"template_type": "generic",
+				    "elements": [{
+				    	"title": "Olá, você quer viajar?",
+					    "buttons": [{
+						    "type": "postback",
+						    "title": "Sim",
+						    "payload": "sim",
+					    }, {
+						    "type": "postback",
+						    "title": "Não",
+						    "payload": "não",
+					    }],
+				    }]
+			    }
+		    }
+		    }
+	
+			request({
+		        url: 'https://graph.facebook.com/v2.6/me/messages',
+		        qs: { access_token: token },
+		        method: 'POST',
+		        json: {
+		            recipient: { id: sender },
+		            message: messageData,
+		        }
+		    }, function (error, response, body) {
+		        if (error) {
+		            console.log('Error sending message: ', error);
+		        } else if (response.body.error) {
+		            console.log('Error: ', response.body.error);
+		        }
+		    });
+		    break;
+		}
+		
+		case 'quer_viajar':{
+			messageData = {
+		    "attachment": {
+			    "type": "template",
+			    "payload": {
+					"template_type": "generic",
+				    "elements": [{
+				    	"title": "Perfeito, qual é o seu destino?",
+					    "buttons": [{
+						    "type": "postback",
+						    "title": "São Paulo",
+						    "payload": "sao paulo",
+					    }, {
+						    "type": "postback",
+						    "title": "Rio de Janeiro",
+						    "payload": "rio de janeiro",
+					    }, {
+						    "type": "postback",
+						    "title": "Outro (Informe qual)",
+						    "payload": "outro",
+					    }],
+				    }]
+			    }
+		    }
+
+			};
+
+			request({
+		        url: 'https://graph.facebook.com/v2.6/me/messages',
+		        qs: { access_token: token },
+		        method: 'POST',
+		        json: {
+		            recipient: { id: sender },
+		            message: messageData,
+		        }
+		    }, function (error, response, body) {
+		        if (error) {
+		            console.log('Error sending message: ', error);
+		        } else if (response.body.error) {
+		            console.log('Error: ', response.body.error);
+		        }
+		    });
+		    break;
+		}
+		
+		case 'quer_viajar2':{
+			messageData = { text: "Perfeito, qual é o seu destino?" }
+
+			request({
+		        url: 'https://graph.facebook.com/v2.6/me/messages',
+		        qs: { access_token: token },
+		        method: 'POST',
+		        json: {
+		            recipient: { id: sender },
+		            message: messageData,
+		        }
+		    }, function (error, response, body) {
+		        if (error) {
+		            console.log('Error sending message: ', error);
+		        } else if (response.body.error) {
+		            console.log('Error: ', response.body.error);
+		        }
+		    });
+		    break;
+		}
+		
+		case 'nao_quer_viajar': {
+				messageData = {
+			    "attachment": {
+				    "type": "template",
+				    "payload": {
+						"template_type": "generic",
+					    "elements": [{
+					    	"title": "Não quer? Tem certeza? Visualize nossas principais ofertas e retorne sempre!! ",
+						    "buttons": [{
+							    "type": "web_url",
+							    "title": "Destinos até mil reais.",
+							    "url": "http://www.cvc.com.br/promocao/destinos-ate-mil-reais.aspx",
+						    }],
+					    }]
+				    }
+			    }
+		    };
+	
+			request({
+		        url: 'https://graph.facebook.com/v2.6/me/messages',
+		        qs: { access_token: token },
+		        method: 'POST',
+		        json: {
+		            recipient: { id: sender },
+		            message: messageData,
+		        }
+		    }, function (error, response, body) {
+		        if (error) {
+		            console.log('Error sending message: ', error);
+		        } else if (response.body.error) {
+		            console.log('Error: ', response.body.error);
+		        }
+		    });
+		    break;
+		}
+		
+		default:{
+			
+		}
+	}
 	
 	if(messageWatsonHttp.text === "http"){
 		messageData = {
@@ -138,7 +286,8 @@ function sendMessage(sender, text_) {
 	        }
 	    });
 	}
-	
+
+	/*
 	if(messageWatson.text === "inicio_mensagem"){
 		messageData = {
 		    "attachment": {
@@ -176,9 +325,9 @@ function sendMessage(sender, text_) {
 	            console.log('Error: ', response.body.error);
 	        }
 	    });
-	    
+
 	}
-	
+
 	if(messageWatson.text === "quer_viajar"){
 		messageData = {
 		    "attachment": {
@@ -202,10 +351,10 @@ function sendMessage(sender, text_) {
 					    }],
 				    }]
 			    }
-		    } 
-    
+		    }
+
 		};
-		
+
 		request({
 	        url: 'https://graph.facebook.com/v2.6/me/messages',
 	        qs: { access_token: token },
@@ -222,10 +371,10 @@ function sendMessage(sender, text_) {
 	        }
 	    });
 	}
-	
+
 	if(messageWatson.text === "quer_viajar2"){
 		messageData = { text: "Perfeito, qual é o seu destino?" }
-		
+
 		request({
 	        url: 'https://graph.facebook.com/v2.6/me/messages',
 	        qs: { access_token: token },
@@ -242,7 +391,7 @@ function sendMessage(sender, text_) {
 	        }
 	    });
 	}
-	
+
 	if(messageWatson.text === "nao_quer_viajar"){
 		messageData = {
 		    "attachment": {
@@ -276,10 +425,12 @@ function sendMessage(sender, text_) {
 	            console.log('Error: ', response.body.error);
 	        }
 	    });
-	    
+		
 	}
-	
-	/* if(messageWatson.text === "rio"){
+	*/
+}
+
+/* if(messageWatson.text === "rio"){
 		messageData = {
 		    "attachment": {
 			    "type": "template",
@@ -313,28 +464,11 @@ function sendMessage(sender, text_) {
 	            console.log('Error: ', response.body.error);
 	        }
 	    });
-	    
+
 	} */
-	
-	request({
-	        url: 'https://graph.facebook.com/v2.6/me/messages',
-	        qs: { access_token: token },
-	        method: 'POST',
-	        json: {
-	            recipient: { id: sender },
-	            message: messageWatson,
-	        }
-	    }, function (error, response, body) {
-	        if (error) {
-	            console.log('Error sending message: ', error);
-	        } else if (response.body.error) {
-	            console.log('Error: ', response.body.error);
-	        }
-	    });
-	  
-}
 
 var token = "EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD";
 var host = process.env.VCAP_APP_HOST || 'localhost';
 var port = process.env.VCAP_APP_PORT || 3000;
 app.listen(port, host);
+	
