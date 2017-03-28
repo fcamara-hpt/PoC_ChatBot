@@ -186,6 +186,26 @@ function sendMessage(sender, text_) {
 	    });
 	}
 	
+	if(messageWatson.text === "quer_viajar2"){
+		messageData = "Perfeito, qual é o seu destino?";
+		
+		request({
+	        url: 'https://graph.facebook.com/v2.6/me/messages',
+	        qs: { access_token: token },
+	        method: 'POST',
+	        json: {
+	            recipient: { id: sender },
+	            message: messageData,
+	        }
+	    }, function (error, response, body) {
+	        if (error) {
+	            console.log('Error sending message: ', error);
+	        } else if (response.body.error) {
+	            console.log('Error: ', response.body.error);
+	        }
+	    });
+	}
+	
 	if(messageWatson.text === "rio"){
 		messageData = {
 		    "attachment": {
