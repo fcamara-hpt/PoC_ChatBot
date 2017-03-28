@@ -103,7 +103,7 @@ function sendMessage(sender, text_) {
 	messageWatsonHttp = { text: text2 };
 	
 	
-	switch(messageWatson){
+	switch(text_){
 		case 'inicio_mensagem': {
 			messageData = {
 		    "attachment": {
@@ -246,9 +246,7 @@ function sendMessage(sender, text_) {
 		    break;
 		}
 		
-		default:{
-			
-		}
+		default:
 	}
 	
 	if(messageWatsonHttp.text === "http"){
