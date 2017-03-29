@@ -1,21 +1,32 @@
 {
   "name": "NodejsStarterApp",
   "version": "0.0.1",
+  "description": "Chatbot Watson for Messenger",
+  "engines": {
+    "node": "5.9.1"
+  },
   "private": true,
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "cfenv": "^1.0.4",
-    "ejs": "^2.4.1",
-    "express": "^4.13.4",
-    "htmlparser": "^1.7.7",
-    "request": "^2.72.0",
-    "watson-developer-cloud": "^2.0.1"
+    "body-parser": "1.15.0",
+    "cfenv": "1.0.4",
+    "ejs": "2.4.1",
+    "express": "4.13.4",
+    "htmlparser": "1.7.7",
+    "request": "2.72.0",
+    "watson-developer-cloud": "2.0.1"
   },
   "repository": {},
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
   "engines": {
     "node": "4.x"
-  }
+  },
+  "license": "MIT"
 }
