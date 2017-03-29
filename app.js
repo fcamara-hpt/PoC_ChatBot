@@ -101,8 +101,8 @@
 		messageWatson = { text: text_ };
 		text2 = text_.substring(0, 4);
 		messageWatsonHttp = { text: text2 };
-		
-		
+
+
 		switch(text_){
 			case 'inicio_mensagem': {
 				messageData = {
@@ -125,7 +125,7 @@
 				    }
 			    }
 			    };
-		
+
 				request({
 			        url: 'https://graph.facebook.com/v2.6/me/messages',
 			        qs: { access_token: token },
@@ -143,7 +143,7 @@
 			    });
 			    break;
 			}
-			
+
 			case 'quer_viajar':{
 				messageData = {
 			    "attachment": {
@@ -188,7 +188,7 @@
 			    });
 			    break;
 			}
-			
+
 			case 'quer_viajar2':{
 				messageData = { text: "Para onde deseja ir?" };
 
@@ -209,7 +209,7 @@
 			    });
 			    break;
 			}
-			
+
 			case 'nao_quer_viajar': {
 				messageData = {
 				    "attachment": {
@@ -227,7 +227,7 @@
 					    }
 				    }
 			    };
-		
+
 				request({
 			        url: 'https://graph.facebook.com/v2.6/me/messages',
 			        qs: { access_token: token },
@@ -245,7 +245,7 @@
 			    });
 			    break;
 			}
-			
+
 			case 'rio':{
 				messageData = {
 			    "attachment": {
@@ -303,7 +303,7 @@
 		    });
 				break;
 			}
-			
+
 			case 'sao':{
 				messageData = {
 			    "attachment": {
@@ -344,7 +344,6 @@
 			    }
 			}
 
-
 			request({
 		        url: 'https://graph.facebook.com/v2.6/me/messages',
 		        qs: { access_token: token },
@@ -364,7 +363,7 @@
 			}
 			case 'data': {
 				messageData = { text: "Quando deseja viajar? (Ex: 25/07/2017)"};
-		
+
 				request({
 			        url: 'https://graph.facebook.com/v2.6/me/messages',
 			        qs: { access_token: token },
