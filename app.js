@@ -363,7 +363,7 @@
 				break;
 			}
 			case 'data': {
-				messageData = { text: "Que data deseja viajar?"};
+				messageData = { text: "Quando deseja viajar? (Ex: 25/07/2017)"};
 		
 				request({
 			        url: 'https://graph.facebook.com/v2.6/me/messages',
