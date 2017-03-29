@@ -223,7 +223,7 @@
 								    "title": "Clique aqui.",
 								    "url": "http://www.cvc.com.br/promocao/destinos-ate-mil-reais.aspx",
 							    }],
-						    }]
+						     }]
 					    }
 				    }
 			    };
@@ -246,6 +246,115 @@
 			    break;
 			}
 			
+			case 'rio':{
+				messageData = {
+			    "attachment": {
+				    "type": "template",
+				    "payload": {
+						"template_type": "generic",
+					    "elements": [{
+					    	"title": "Ótimo, veja essas ofertas para o Rio:",
+					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
+						    "buttons": [{
+						    "type": "web_url",
+						    "url": "https://www.decolar.com/passagens-aereas/sao/rio/passagens-aereas-para-rio+de+janeiro-saindo-de-sao+paulo?from=SB",
+						    "title": "Pesquisar Voos"
+					    }],
+					    },
+					    {
+					    	"title": "Veja esses pacotes para o Pão de Açúcar:",
+					    	"image_url": "https://s3-eu-west-1.amazonaws.com/masterdatastore/penny/br/images/Sugar-Loaf.jpg",
+						    "buttons": [{
+						    "type": "web_url",
+						    "url": "http://viagemeturismo.abril.com.br/atracao/pao-de-acucar/",
+						    "title": "Pesquisar Pacotes"
+					    }],
+					    },
+					     {
+					    	"title": "Confira as atrações cariocas:",
+					    	"image_url": "http://i0.statig.com.br/bancodeimagens/8m/ff/nm/8mffnm7zglx6s5tej2unbwwi5.jpg",
+						    "buttons": [{
+						    "type": "web_url",
+						    "url": "http://www.melhoresdestinos.com.br/dicas-rio-janeiro.html",
+						    "title": "Pesquisar Atrações"
+					    }],
+					    }]
+				    }
+			    }
+		    };
+
+			request({
+		        url: 'https://graph.facebook.com/v2.6/me/messages',
+		        qs: { access_token: token },
+		        method: 'POST',
+		        json: {
+		            recipient: { id: sender },
+		            message: messageData,
+		        }
+		    }, function (error, response, body) {
+		        if (error) {
+		            console.log('Error sending message: ', error);
+		        } else if (response.body.error) {
+		            console.log('Error: ', response.body.error);
+		        }
+		    });
+				break;
+			}
+			
+			case 'sao':{
+				messageData = {
+			    "attachment": {
+				    "type": "template",
+				    "payload": {
+						"template_type": "generic",
+					    "elements": [{
+					    	"title": "Perfeito, confira nossas ofertas de viagem para São Paulo:",
+					    	"image_url": "https://jonathasfpereira.files.wordpress.com/2014/06/masp-2.jpg",
+						    "buttons": [{
+						    "type": "web_url",
+						    "url": "https://www.decolar.com/passagens-aereas/rio/sao/passagens-aereas-para-sao+paulo-saindo-de-rio+de+janeiro?from=SB",
+						    "title": "Pesquisar Voos"
+					    }],
+					    },
+					    {
+					    	"title": "Veja esses pacotes para a capital paulista:",
+					    	"image_url": "http://www.parquedoibirapuera.com/wp-content/gallery/verde/parque-ibirapuera-arte-turismo-lazer-em-sao-paulo.jpg",
+						    "buttons": [{
+						    "type": "web_url",
+						    "url": "https://www.decolar.com/cp/shop/search/C6381/C6574/2017-03-30/2017-04-01/1/0/0/NA/2017-03-30/2017-04-01/1?flow=V-H&from=VSB#/hotel/4309d5189b314d1587023d581c289d71/BRL/NA/NA/NA/",
+						    "title": "Pesquisar Pacotes"
+					    }],
+					    },
+					     {
+					    	"title": "Confira as atrações paulistanas:",
+					    	"image_url": "https://cadernodaclariana.files.wordpress.com/2012/06/imagem6.png",
+						    "buttons": [{
+						    "type": "web_url",
+						    "url": "http://www.pureviagem.com.br/noticia/sao-paulo-20-atracoes-imperdiveis-na-capital-paulista_a16696/1",
+						    "title": "Pesquisar Atrações"
+					    }],
+					    }]
+				    }
+			    }
+		    };
+
+			request({
+		        url: 'https://graph.facebook.com/v2.6/me/messages',
+		        qs: { access_token: token },
+		        method: 'POST',
+		        json: {
+		            recipient: { id: sender },
+		            message: messageData,
+		        }
+		    }, function (error, response, body) {
+		        if (error) {
+		            console.log('Error sending message: ', error);
+		        } else if (response.body.error) {
+		            console.log('Error: ', response.body.error);
+		        }
+		    });
+				break;
+			}
 			default:
 		}
 		
