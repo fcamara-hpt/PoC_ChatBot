@@ -253,30 +253,33 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Ótimo, veja essas ofertas para o Rio:",
-					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
+					    	"title": "Oferta TAM Rio de Janeiro:",
+					    	"subtitle": "R$ 130 + encargos (R$ 100)",
+					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/passagens-aereas/sao/rio/passagens-aereas-para-rio+de+janeiro-saindo-de-sao+paulo?from=SB",
-						    "title": "Pesquisar Voos"
+						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/4472f2a53c6742a1b516aa6247fe3767",
+						    "title": "Compre aqui"
 					    }],
 					    },
 					    {
-					    	"title": "Veja esses pacotes para o Pão de Açúcar:",
-					    	"image_url": "https://s3-eu-west-1.amazonaws.com/masterdatastore/penny/br/images/Sugar-Loaf.jpg",
+					    	"title": "Oferta Azul Rio de Janeiro:",
+					    	"subtitle": "R$ 162 + encargos (R$ 89)",
+					    	"image_url": "http://cdn.panrotas.com.br/media-files-original/2015/11/24/azul2811144.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "http://viagemeturismo.abril.com.br/atracao/pao-de-acucar/",
-						    "title": "Pesquisar Pacotes"
+						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/dd1276c9f8ed43faab0b30dc7feb2695",
+						    "title": "Compre aqui"
 					    }],
 					    },
 					     {
-					    	"title": "Confira estas atrações cariocas:",
-					    	"image_url": "http://i0.statig.com.br/bancodeimagens/8m/ff/nm/8mffnm7zglx6s5tej2unbwwi5.jpg",
+					    	"title": "Oferta Aviança Rio de Janeiro:",
+					    	"subtitle": "R$ 162 + encargos (R$ 100)",
+					    	"image_url": "http://ww2.baguete.com.br/admin//cache/image/noticias/2016/03/1459435265_Avianca.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "http://www.melhoresdestinos.com.br/dicas-rio-janeiro.html",
-						    "title": "Pesquisar Atrações"
+						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/ea750bd8190140eaa3621db91368c3fa",
+						    "title": "Compre aqui"
 					    }],
 					    }]
 				    }
@@ -308,35 +311,39 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Perfeito, confira nossas ofertas de viagem para São Paulo:",
-					    	"image_url": "https://jonathasfpereira.files.wordpress.com/2014/06/masp-2.jpg",
+					    	"title": "Oferta TAM São Paulo:",
+					    	"subtitle": "R$ 130 + encargos (R$ 100)",
+					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/passagens-aereas/rio/sao/passagens-aereas-para-sao+paulo-saindo-de-rio+de+janeiro?from=SB",
-						    "title": "Pesquisar Voos"
+						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/ab5ceddbd4a34251abd0556df7b1ff7c",
+						    "title": "Compre aqui"
 					    }],
 					    },
 					    {
-					    	"title": "Veja esses pacotes para a capital paulista:",
-					    	"image_url": "http://www.parquedoibirapuera.com/wp-content/gallery/verde/parque-ibirapuera-arte-turismo-lazer-em-sao-paulo.jpg",
+					    	"title": "Oferta Azul São Paulo:",
+					    	"subtitle": "R$ 162 + encargos (R$ 89)",
+					    	"image_url": "http://cdn.panrotas.com.br/media-files-original/2015/11/24/azul2811144.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/cp/shop/search/C6381/C6574/2017-03-30/2017-04-01/1/0/0/NA/2017-03-30/2017-04-01/1?flow=V-H&from=VSB#/hotel/4309d5189b314d1587023d581c289d71/BRL/NA/NA/NA/",
-						    "title": "Pesquisar Pacotes"
+						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/fbded4e3859048f58b3362b982450c22",
+						    "title": "Compre aqui"
 					    }],
 					    },
 					     {
-					    	"title": "Confira estas atrações paulistanas:",
-					    	"image_url": "https://cadernodaclariana.files.wordpress.com/2012/06/imagem6.png",
+					    	"title": "Oferta Aviança São Paulo:",
+					    	"subtitle": "R$ 162 + encargos (R$ 100)",
+					    	"image_url": "http://ww2.baguete.com.br/admin//cache/image/noticias/2016/03/1459435265_Avianca.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "http://www.pureviagem.com.br/noticia/sao-paulo-20-atracoes-imperdiveis-na-capital-paulista_a16696/1",
-						    "title": "Pesquisar Atrações"
+						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/096b0fc5a72c485598a8ffa2add1822c",
+						    "title": "Compre aqui"
 					    }],
 					    }]
 				    }
 			    }
-		    };
+			}
+
 
 			request({
 		        url: 'https://graph.facebook.com/v2.6/me/messages',
