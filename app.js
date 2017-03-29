@@ -271,7 +271,7 @@
 					    }],
 					    },
 					     {
-					    	"title": "Confira as atrações cariocas:",
+					    	"title": "Confira estas atrações cariocas:",
 					    	"image_url": "http://i0.statig.com.br/bancodeimagens/8m/ff/nm/8mffnm7zglx6s5tej2unbwwi5.jpg",
 						    "buttons": [{
 						    "type": "web_url",
@@ -326,7 +326,7 @@
 					    }],
 					    },
 					     {
-					    	"title": "Confira as atrações paulistanas:",
+					    	"title": "Confira estas atrações paulistanas:",
 					    	"image_url": "https://cadernodaclariana.files.wordpress.com/2012/06/imagem6.png",
 						    "buttons": [{
 						    "type": "web_url",
@@ -355,9 +355,29 @@
 		    });
 				break;
 			}
+			case 'data': {
+				messageData = { text: "Que data deseja viajar?"};
+		
+				request({
+			        url: 'https://graph.facebook.com/v2.6/me/messages',
+			        qs: { access_token: token },
+			        method: 'POST',
+			        json: {
+			            recipient: { id: sender },
+			            message: messageData,
+			        }
+			    }, function (error, response, body) {
+			        if (error) {
+			            console.log('Error sending message: ', error);
+			        } else if (response.body.error) {
+			            console.log('Error: ', response.body.error);
+			        }
+			    });
+			    break;
+			}
 			default:
 		}
-		
+
 		if(messageWatsonHttp.text === "http"){
 			messageData = {
 			    "attachment": {
