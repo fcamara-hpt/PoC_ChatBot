@@ -5,6 +5,8 @@
 	var app = express();
 	var contexid = "";
 
+	app.set('port', (process.env.PORT || 3000));
+	app.use(express.static(__dirname + '/public'));
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(bodyParser.json());
 
@@ -27,7 +29,7 @@
 	});
 
 	app.get('/webhook/', function (req, res) {
-	    if (req.query['hub.verify_token'] === 'EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD') {
+	    if (req.query['hub.verify_token'] === 'EAACtS5HesysBANzGylpaKEZCiT4xhPqcjRjDHpl2Ahffr7FTdHCD7BvUl25narZAaC3Lq0iTkZBr79D9AZBAlgjxOjUqk7mu6UQxjgKytMnZAFl0nTZCDx3WGpBLyBa58nfiGf9hD3wi5Q3F5abKd0D5nq6fn67phSx1F5BZArnkgZDZD') {
 	        res.send(req.query['hub.challenge']);
 	    }
 	    res.send('Erro de validação no token.');
@@ -421,7 +423,7 @@
 		}
 	}
 
-	var token = "EAACtS5HesysBAJDXJYzRIc7IBRyHg7uuJIBeTWBBsZAcbKQwEZCh5Mdx2m2jZC8a8eQBhb6BmeH2aPZCQ6vP6GQHUMCp9eiN230yErR8ICqZAjEuYHZAhzoVM7ZAyHA5mME1kJe7SmH6t5rwZBhJZCdqGNY2mAtuWCapkANuDZB1o27AZDZD";
+	var token = "EAACtS5HesysBANzGylpaKEZCiT4xhPqcjRjDHpl2Ahffr7FTdHCD7BvUl25narZAaC3Lq0iTkZBr79D9AZBAlgjxOjUqk7mu6UQxjgKytMnZAFl0nTZCDx3WGpBLyBa58nfiGf9hD3wi5Q3F5abKd0D5nq6fn67phSx1F5BZArnkgZDZD";
 	var host = process.env.VCAP_APP_HOST || 'localhost';
 	var port = process.env.VCAP_APP_PORT || 3000;
 	app.listen(port, host);
