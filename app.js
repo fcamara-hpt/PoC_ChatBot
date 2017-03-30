@@ -351,21 +351,7 @@
 			    }
 			}
 
-			request({
-		        url: 'https://graph.facebook.com/v2.6/me/messages',
-		        qs: { access_token: token },
-		        method: 'POST',
-		        json: {
-		            recipient: { id: sender },
-		            message: messageData,
-		        }
-		    }, function (error, response, body) {
-		        if (error) {
-		            console.log('Error sending message: ', error);
-		        } else if (response.body.error) {
-		            console.log('Error: ', response.body.error);
-		        }
-		    });
+				sendRequest(messageData);
 				break;
 			}
 			case 'data': {
@@ -410,23 +396,27 @@
 			    }
 		    };
 
-			request({
-		        url: 'https://graph.facebook.com/v2.6/me/messages',
-		        qs: { access_token: token },
-		        method: 'POST',
-		        json: {
-		            recipient: { id: sender },
-		            message: messageData,
-		        }
-		    }, function (error, response, body) {
-		        if (error) {
-		            console.log('Error sending message: ', error);
-		        } else if (response.body.error) {
-		            console.log('Error: ', response.body.error);
-		        }
-		    });
+			sendRequest(messageData);
 		}
 	}
+
+function sendRequest(messageData){
+	request({
+				url: 'https://graph.facebook.com/v2.6/me/messages',
+				qs: { access_token: token },
+				method: 'POST',
+				json: {
+						recipient: { id: sender },
+						message: messageData,
+				}
+		}, function (error, response, body) {
+				if (error) {
+						console.log('Error sending message: ', error);
+				} else if (response.body.error) {
+						console.log('Error: ', response.body.error);
+				}
+		});
+}
 
 	var token = "EAACtS5HesysBANzGylpaKEZCiT4xhPqcjRjDHpl2Ahffr7FTdHCD7BvUl25narZAaC3Lq0iTkZBr79D9AZBAlgjxOjUqk7mu6UQxjgKytMnZAFl0nTZCDx3WGpBLyBa58nfiGf9hD3wi5Q3F5abKd0D5nq6fn67phSx1F5BZArnkgZDZD";
 	var host = process.env.VCAP_APP_HOST || 'localhost';
