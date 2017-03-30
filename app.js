@@ -86,7 +86,12 @@
 		w_conversation.message(payload, function (err, convResults) {
 			console.log(convResults);
 			contexid = convResults.context;
+			if(convResults.context.data){
+				contextdata = convResults.context.data;
+			}
 
+			console.log("Essa é a variavel Data: " + contextdata);
+			
 	        if (err) {
 	            return responseToRequest.send("Erro.");
 	        }
@@ -105,10 +110,13 @@
 
 	function sendMessage(sender, text_) {
 		text_ = text_.substring(0, 319);
-		messageWatson = { text: text_ };
 		text2 = text_.substring(0, 4);
-		messageWatsonHttp = { text: text2 };
+		text_sigla = text_.substring(0,3);
+		if(text_.length > 6 && text_.length < 15){
+			text_data = text_.substring(4,14);
+		}
 
+		console.log("Exibindo Data novamente: " + text_data);
 
 		switch(text_){
 			case 'inicio_mensagem': {
@@ -133,21 +141,7 @@
 			    }
 			    };
 
-				request({
-			        url: 'https://graph.facebook.com/v2.6/me/messages',
-			        qs: { access_token: token },
-			        method: 'POST',
-			        json: {
-			            recipient: { id: sender },
-			            message: messageData,
-			        }
-			    }, function (error, response, body) {
-			        if (error) {
-			            console.log('Error sending message: ', error);
-			        } else if (response.body.error) {
-			            console.log('Error: ', response.body.error);
-			        }
-			    });
+					sendRequest(messageData);
 			    break;
 			}
 
@@ -178,43 +172,15 @@
 
 				};
 
-				request({
-			        url: 'https://graph.facebook.com/v2.6/me/messages',
-			        qs: { access_token: token },
-			        method: 'POST',
-			        json: {
-			            recipient: { id: sender },
-			            message: messageData,
-			        }
-			    }, function (error, response, body) {
-			        if (error) {
-			            console.log('Error sending message: ', error);
-			        } else if (response.body.error) {
-			            console.log('Error: ', response.body.error);
-			        }
-			    });
-			    break;
+				sendRequest(messageData);
+			  break;
 			}
 
 			case 'quer_viajar2':{
 				messageData = { text: "Para onde deseja ir?" };
 
-				request({
-			        url: 'https://graph.facebook.com/v2.6/me/messages',
-			        qs: { access_token: token },
-			        method: 'POST',
-			        json: {
-			            recipient: { id: sender },
-			            message: messageData,
-			        }
-			    }, function (error, response, body) {
-			        if (error) {
-			            console.log('Error sending message: ', error);
-			        } else if (response.body.error) {
-			            console.log('Error: ', response.body.error);
-			        }
-			    });
-			    break;
+				sendRequest(messageData);
+			  break;
 			}
 
 			case 'nao_quer_viajar': {
@@ -235,21 +201,7 @@
 				    }
 			    };
 
-				request({
-			        url: 'https://graph.facebook.com/v2.6/me/messages',
-			        qs: { access_token: token },
-			        method: 'POST',
-			        json: {
-			            recipient: { id: sender },
-			            message: messageData,
-			        }
-			    }, function (error, response, body) {
-			        if (error) {
-			            console.log('Error sending message: ', error);
-			        } else if (response.body.error) {
-			            console.log('Error: ', response.body.error);
-			        }
-			    });
+					sendRequest(messageData);
 			    break;
 			}
 
@@ -293,21 +245,7 @@
 			    }
 		    };
 
-			request({
-		        url: 'https://graph.facebook.com/v2.6/me/messages',
-		        qs: { access_token: token },
-		        method: 'POST',
-		        json: {
-		            recipient: { id: sender },
-		            message: messageData,
-		        }
-		    }, function (error, response, body) {
-		        if (error) {
-		            console.log('Error sending message: ', error);
-		        } else if (response.body.error) {
-		            console.log('Error: ', response.body.error);
-		        }
-		    });
+				sendRequest(messageData);
 				break;
 			}
 
@@ -357,27 +295,15 @@
 			case 'data': {
 				messageData = { text: "Quando deseja viajar? (Ex: 25/07/2017)"};
 
-				request({
-			        url: 'https://graph.facebook.com/v2.6/me/messages',
-			        qs: { access_token: token },
-			        method: 'POST',
-			        json: {
-			            recipient: { id: sender },
-			            message: messageData,
-			        }
-			    }, function (error, response, body) {
-			        if (error) {
-			            console.log('Error sending message: ', error);
-			        } else if (response.body.error) {
-			            console.log('Error: ', response.body.error);
-			        }
-			    });
-			    break;
+				sendRequest(messageData);
+			  break;
 			}
 			default:
 		}
 
-		if(messageWatsonHttp.text === "http"){
+
+
+		if(text2 === "http"){
 			messageData = {
 			    "attachment": {
 				    "type": "template",
