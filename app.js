@@ -189,13 +189,24 @@
 					    "payload": {
 							"template_type": "generic",
 						    "elements": [{
-						    	"title": "Não quer? Tem certeza? Visualize nossas principais ofertas e retorne sempre!! ",
+						    	"title": "Não quer? Tem certeza? Visualize essa oferta de viagem para o Rio de Janeiro: ",
+									"subtitle": "R$ 130 + encargos (R$ 100)",
+						    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 							    "buttons": [{
-								    "type": "web_url",
-								    "title": "Clique aqui.",
-								    "url": "http://www.cvc.com.br/promocao/destinos-ate-mil-reais.aspx",
-							    }],
-						     }]
+							    "type": "web_url",
+							    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/4472f2a53c6742a1b516aa6247fe3767",
+							    "title": "Compre aqui"
+						    }],
+							}, {
+					    	"title": "Temos também para São Paulo:",
+					    	"subtitle": "R$ 130 + encargos (R$ 100)",
+					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
+						    "buttons": [{
+						    "type": "web_url",
+						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/ab5ceddbd4a34251abd0556df7b1ff7c",
+						    "title": "Compre aqui"
+					    }],
+					    }]
 					    }
 				    }
 			    };
