@@ -88,7 +88,7 @@
 			console.log(convResults);
 			contexid = convResults.context;
 
-			console.log("Esse é o contexid" + contexid);
+			console.log("Esse é o contexid" + contexid.conversation_id);
 
 	        if (err) {
 	            return responseToRequest.send("Erro.");
