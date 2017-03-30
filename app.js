@@ -90,9 +90,6 @@
 			contexid = convResults.context;
 			node = convResults.output.nodes_visited;
 
-			console.log("Você está no nó: " + node);
-
-
 	        if (err) {
 	            return responseToRequest.send("Erro.");
 	        }
@@ -102,33 +99,20 @@
 	        if(convResults != null && convResults.output != null){
 				var i = 0;
 				while(i < convResults.output.text.length){
-					sendMessage(sender, convResults.output.text[i++]);
+					sendMessage(sender, convResults.output.text[i++], node);
 				}
 			}
 
 	    });
 	}
 
-	function checkData(data){
-		var hoje = new Date();
-
-		if(data > hoje){
-			return true;
-		} else {
-		  messageData = {text: "Sua data está incorreta ou não é uma data futura! Por favor, digite novamente: "};
-
-			sendRequest(messageData);
-			return false;
-		}
-	}
-
-	function sendMessage(sender, text_) {
+	function sendMessage(sender, text_, node) {
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
 		text_sigla = text_.substring(0,3);
 		text_data = text_.substring(0,9);
 
-		console.log("Text_: " + text_ + " + Tamanho de text_: " + text_.length + " + Sender: " + sender);
+		console.log("\nText_: " + text_ + " + Tamanho de text_: " + text_.length + " + Sender: " + sender);
 
 		switch(text_){
 			case 'inicio_mensagem': {
@@ -334,7 +318,7 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Perfeito, veja essas passagens para sua pesquisa:",
+					    	"title": "Perfeito, veja essas passagens para: " + node,
 					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 						    "buttons": [{
 						    "type": "web_url",
