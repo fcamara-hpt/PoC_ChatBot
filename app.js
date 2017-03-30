@@ -90,9 +90,7 @@
 			if(convResults.context.data){
 				contextdata = convResults.context.data;
 				console.log(contextdata);
-				while(checkData(contextdata) === false){
-					checkData(contextdata)
-				}
+				
 			}
 
 			contexid = convResults.context;
