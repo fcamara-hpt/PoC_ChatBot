@@ -113,7 +113,7 @@
 		text2 = text_.substring(0, 4);
 		text_sigla = text_.substring(0,3);
 
-		console.log("Text_: " + text_ + " + Tamanho de text_: " text_.length);
+		console.log("Text_: " + text_ + " + Tamanho de text_: " + text_.length);
 
 		// console.log("Exibindo Data novamente: " + text_data);
 
