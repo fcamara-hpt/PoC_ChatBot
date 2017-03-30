@@ -88,8 +88,9 @@
 			console.log(convResults);
 
 			contexid = convResults.context;
+			node = convResults.output.nodes_visited;
 
-			var teste = 'teste';
+			console.log("Você está no nó: " + node);
 
 
 	        if (err) {
