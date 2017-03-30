@@ -86,7 +86,18 @@
 	function callWatson(payload, sender) {
 		w_conversation.message(payload, function (err, convResults) {
 			console.log(convResults);
+
+			if(convResults.context.data){
+				contextdata = convResults.context.data;
+				console.log(contextdata);
+				while(checkData(contextdata) === false){
+					checkData(contextdata)
+				}
+			}
+
 			contexid = convResults.context;
+
+
 
 	        if (err) {
 	            return responseToRequest.send("Erro.");
@@ -104,17 +115,26 @@
 	    });
 	}
 
+	function checkData(data){
+		var hoje = new Date();
+
+		if(data > hoje){
+			return true;
+		} else {
+		  messageData = {text: "Sua data está incorreta ou não é uma data futura! Por favor, digite novamente: "};
+
+			sendRequest(messageData);
+			return false;
+		}
+	}
+
 	function sendMessage(sender, text_) {
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
 		text_sigla = text_.substring(0,3);
-		text_data = text_.substring(0,4);
-
+		text_data = text_.substring(0,9);
 
 		console.log("Text_: " + text_ + " + Tamanho de text_: " + text_.length + " + Sender: " + sender);
-		now = new Date();
-		console.log("getDay: " + now.getDay() + ", getMonth: " + now.getMonth() + ", now: " + now);
-
 
 		switch(text_){
 			case 'inicio_mensagem': {
