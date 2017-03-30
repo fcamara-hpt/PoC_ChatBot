@@ -3,7 +3,6 @@
 	var bodyParser = require('body-parser');
 	var watson = require('watson-developer-cloud');
 	var app = express();
-	var contexid = "";
 
 	app.set('port', (process.env.PORT || 3000));
 	app.use(express.static(__dirname + '/public'));
@@ -56,6 +55,7 @@
 				break;
 			}
 
+			var contexid = "";
 			var params = {
 				input: text,
 				// context: {"conversation_id": conversation_id}
@@ -85,6 +85,8 @@
 	function callWatson(payload, sender) {
 		w_conversation.message(payload, function (err, convResults) {
 			console.log(convResults);
+			
+			var contexid = "";
 			contexid = convResults.context;
 
 	        if (err) {
