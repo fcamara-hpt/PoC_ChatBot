@@ -86,9 +86,9 @@
 	function callWatson(payload, sender) {
 		w_conversation.message(payload, function (err, convResults) {
 			console.log(convResults);
-
-
 			contexid = convResults.context;
+
+			console.log("Esse é o contexid" + contexid);
 
 	        if (err) {
 	            return responseToRequest.send("Erro.");
@@ -115,7 +115,7 @@
 
 		console.log("Text_: " + text_ + " + Tamanho de text_: " + text_.length + " + Sender: " + sender);
 
-		// console.log("Exibindo Data novamente: " + text_data);
+
 
 		switch(text_){
 			case 'inicio_mensagem': {
