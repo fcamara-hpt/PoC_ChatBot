@@ -85,7 +85,7 @@
 	function callWatson(payload, sender) {
 		w_conversation.message(payload, function (err, convResults) {
 			console.log(convResults);
-			
+
 			var contexid = "";
 			contexid = convResults.context;
 
@@ -125,6 +125,7 @@
 						"template_type": "generic",
 					    "elements": [{
 					    	"title": "Olá, você quer viajar?",
+								"image_url": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAc2AAAAJGI2MTg2NzdiLTAwY2QtNGI3NS1hZTM0LTFhM2U3NDExMDY4Nw.png",
 						    "buttons": [{
 							    "type": "postback",
 							    "title": "Sim",
