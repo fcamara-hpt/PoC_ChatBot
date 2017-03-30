@@ -87,14 +87,9 @@
 		w_conversation.message(payload, function (err, convResults) {
 			console.log(convResults);
 
-			if(convResults.context.data){
-				contextdata = convResults.context.data;
-				console.log(contextdata);
-				
-			}
-
 			contexid = convResults.context;
 
+			var teste = 'teste';
 
 
 	        if (err) {
