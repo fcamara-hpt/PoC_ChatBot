@@ -112,7 +112,7 @@
 
 
 		console.log("Text_: " + text_ + " + Tamanho de text_: " + text_.length + " + Sender: " + sender);
-		now = new Date;
+		now = new Date();
 		console.log("getDay: " + now.getDay() + ", getMonth: " + now.getMonth());
 
 
