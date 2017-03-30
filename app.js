@@ -113,7 +113,7 @@
 
 		console.log("Text_: " + text_ + " + Tamanho de text_: " + text_.length + " + Sender: " + sender);
 
-		consoel.log("getDay: " + now.getDay() + ", getData: " + now.getData() + ", getMonth: " + now.getMonth());
+		console.log("getDay: " + now.getDay() + ", getData: " + now.getData() + ", getMonth: " + now.getMonth());
 
 
 		switch(text_){
