@@ -59,8 +59,8 @@
 
 			var params = {
 				input: text,
-				// context: {"conversation_id": conversation_id}
-				context:contexid
+				context: {"conversation_id": conversation_id}
+				// context:contexid
 			};
 
 			var payload = {
