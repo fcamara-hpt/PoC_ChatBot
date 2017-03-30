@@ -88,10 +88,10 @@
 			contexid = convResults.context;
 			if(convResults.context.data){
 				contextdata = convResults.context.data;
+				console.log("Essa é a variavel Data: " + contextdata);
 			}
 
-			console.log("Essa é a variavel Data: " + contextdata);
-			
+
 	        if (err) {
 	            return responseToRequest.send("Erro.");
 	        }
