@@ -112,11 +112,10 @@
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
 		text_sigla = text_.substring(0,3);
-		if(text_.length > 6 && text_.length < 15){
-			text_data = text_.substring(4,14);
-		}
 
-		console.log("Exibindo Data novamente: " + text_data);
+		console.log("Text_: " + text_ + " + Tamanho de text_: " text_.length);
+
+		// console.log("Exibindo Data novamente: " + text_data);
 
 		switch(text_){
 			case 'inicio_mensagem': {
