@@ -351,18 +351,6 @@
 				sendRequest(messageData);
 			  break;
 			}
-			case 'dataantiga': {
-				messageData = { text: "A data informada é antiga, verifique a data e informe novamente. (Ex: 25/07/2017)"};
-
-				sendRequest(messageData);
-			  break;
-			}
-			case 'datanula': {
-				messageData = { text: "A data informada está incorreta, verifique e informe novamente. (Ex: 25/07/2017, verifique se é uma data futura.)"};
-
-				sendRequest(messageData);
-			  break;
-			}
 			default:
 		}
 
