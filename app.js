@@ -119,11 +119,11 @@
 	}
 
 	function sendMessageData(sender, data){
-		var data = moment(data).format('YYYY[-]MM[-]DD');
+		
 		var hoje = moment().format('YYYY[-]MM[-]DD');
 		console.log("\nHoje: " + hoje + ", Data: " + data);
 
-		if(hoje <= data){
+		if(hoje <= data && data != 'null'){
 			var returnData = "dc correta";
 		} else if(hoje > data){
 			var returnData = "da anterior";
