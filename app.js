@@ -62,7 +62,7 @@
 				context:contexid
 			};
 
-			console.log("\nSender: " + sender + ", text: " + text + ", contexid: " + params.contexid + "\n");
+			console.log("\nSender: " + sender + ", text: " + text + ", contexid: " + params.context + "\n");
 
 			var payload = {
 				workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
