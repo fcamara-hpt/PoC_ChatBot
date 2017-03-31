@@ -94,12 +94,8 @@
 				data = convResults.context.data;
 			}
 
-			console.log("Node: " + node);
-
 			if(node == 'Checar a Data'){
-				console.log("Node: " + node);
-
-				console.log("Dentro Data: " + data);
+				sendMessageData(sender, data);
 			}
 
 	        if (err) {
@@ -120,9 +116,12 @@
 
 	function sendMessageData(sender, data){
 		var hoje = new Data();
-		console.log("Hoje: " + hoje);
-		console.log("Data: " + data);
 
+		if(hoje = data){
+			console.log("ok");
+		} else {
+			console.log("erro");
+		}
 
 	}
 
