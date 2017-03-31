@@ -119,11 +119,8 @@
 	}
 
 	function sendMessageData(sender, data){
-		/*var hoje = new Date();
-		var auxiliar = hoje.split("/");
-		var hoje = new Date(auxiliar[2], auxiliar[1] - 1, auxiliar[0]);*/
+
 		var hoje = moment().format('YYYY[-]MM[-]DD');
-		var data = moment().format(date);
 		console.log("\nHoje: " + hoje + ", Data: " + data);
 
 		if(hoje <= data){
@@ -349,19 +346,7 @@
 				break;
 			}
 			case 'data': {
-				messageData = { text: "Quando deseja viajar? (Ex: 25/07/2017, verifique se é uma data futura!)"};
-
-				sendRequest(messageData);
-			  break;
-			}
-			case 'dataantiga': {
-				messageData = { text: "Sua data é antiga, verifique e nos informe novamente. (Ex: 25/07/2017)"};
-
-				sendRequest(messageData);
-			  break;
-			}
-			case 'datanula': {
-				messageData = { text: "Sua data está incorreta, verifique e nos informe novamente. (Ex: 25/07/2017, verifique se é uma data futura!)"};
+				messageData = { text: "Quando você deseja viajar? (Ex: 25/07/2017, verifique se é uma data futura.)"};
 
 				sendRequest(messageData);
 			  break;
