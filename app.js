@@ -116,7 +116,7 @@
 
 	function sendMessageData(sender, data){
 		var hoje = new Date();
-		var data = new Date(data);
+		var data = Date(data);
 		var dd = hoje.getDate();
 		var mm = hoje.getMonth()+1;
 		var yyyy = hoje.getFullYear();
