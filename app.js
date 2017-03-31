@@ -93,6 +93,7 @@
 				data = convResults.context.data;
 			}
 
+			console.log("Node: " + node);
 			if(node === "Checar a Data"){
 				sendMessageData(sender, data);
 			}
