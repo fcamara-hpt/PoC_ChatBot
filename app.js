@@ -96,7 +96,7 @@
 
 			console.log("Node: " + node);
 
-			if(convResults.output.nodes_visited === 'Checar a Data'){
+			if(node == 'Checar a Data'){
 				console.log("Node: " + node);
 
 				console.log("Dentro Data: " + data);
@@ -111,10 +111,7 @@
 	        if(convResults != null && convResults.output != null){
 				var i = 0;
 				while(i < convResults.output.text.length){
-
 						sendMessage(sender, convResults.output.text[i++], node);
-
-
 				}
 			}
 
