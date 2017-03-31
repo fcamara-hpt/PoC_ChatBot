@@ -89,13 +89,14 @@
 
 			contexid = convResults.context;
 			node = convResults.output.nodes_visited;
+
 			if(convResults.context.data){
 				data = convResults.context.data;
-				console.log("Fora Data: " + data);
 			}
 
+			
 
-			if(convResults.output.nodes_visited === "Checar a Data"){
+			if(convResults.output.nodes_visited === 'Checar a Data'){
 				console.log("Node: " + node);
 
 				console.log("Dentro Data: " + data);
