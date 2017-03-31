@@ -56,12 +56,13 @@
 				break;
 			}
 
-
 			var params = {
 				input: text,
 				// context: {"conversation_id": conversation_id}
 				context:contexid
 			};
+
+			console.log("\nSender: " + sender + ", Event: " + event + ", text" + text + ", params: " + params + "\n");
 
 			var payload = {
 				workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
@@ -318,7 +319,7 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Perfeito, veja essas passagens para " + node,
+					    	"title": "Perfeito, veja essas passagens para " + node + ":",
 					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 						    "buttons": [{
 						    "type": "web_url",
