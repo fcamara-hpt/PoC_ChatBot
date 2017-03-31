@@ -128,8 +128,9 @@
 		}
 		var hoje = yyyy + '-' + mm + '-' + dd; */
 
-		hoje.format("yyyy-MM-dd");
-		
+		hoje.format();
+		data.format();
+
 		console.log("Hoje: " + hoje + ", Data: " + data);
 
 		if(hoje.toString() <= data){
