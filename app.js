@@ -115,7 +115,7 @@
 	}
 
 	function sendMessageData(sender, data){
-		var hoje = new Data();
+		var hoje = new Date();
 
 		if(hoje = data){
 			console.log("ok");
