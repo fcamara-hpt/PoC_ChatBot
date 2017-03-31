@@ -93,11 +93,7 @@
 			if(convResults.context.data){
 				data = convResults.context.data;
 			}
-
-			if(node == 'Checar a Data'){
-				sendMessageData(sender, data);
-			}
-
+			
 	        if (err) {
 	            return responseToRequest.send("Erro.");
 	        }
@@ -106,8 +102,12 @@
 	    	   conversation_id = convResults.context.conversation_id;
 	        if(convResults != null && convResults.output != null){
 				var i = 0;
-				while(i < convResults.output.text.length){
-						sendMessage(sender, convResults.output.text[i++], node);
+				if(node == 'Checar a Data'){
+							sendMessageData(sender, data);
+				} else {
+					while(i < convResults.output.text.length){
+							sendMessage(sender, convResults.output.text[i++], node);
+					}
 				}
 			}
 
@@ -117,12 +117,21 @@
 	function sendMessageData(sender, data){
 		var hoje = new Date();
 
-		if(hoje = data){
-			console.log("ok");
+		if(hoje <= data){
+			var returnData = "data certa";
+		} else if(hoje > data){
+			var returnData = "data antiga";
 		} else {
-			console.log("erro");
+			var returnData = "data incorreta";
 		}
 
+		var payload = {
+			workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2",
+			input: returnData,
+			context:contexid
+		};
+
+		callWatson(payload, sender);
 	}
 
 	function sendMessage(sender, text_, node) {
