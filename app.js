@@ -118,9 +118,10 @@
 	}
 
 	function sendMessageData(sender, data){
-		var hoje = new Date();
+		/*var hoje = new Date();
 		var auxiliar = hoje.split("/");
-		var hoje = new Date(auxiliar[2], auxiliar[1] - 1, auxiliar[0]);
+		var hoje = new Date(auxiliar[2], auxiliar[1] - 1, auxiliar[0]);*/
+		var hoje = new Date(,,);
 		console.log("\nHoje: " + hoje + ", Data: " + data);
 
 		if(data){
