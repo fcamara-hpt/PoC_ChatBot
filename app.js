@@ -118,11 +118,11 @@
 		var hoje = new Date();
 
 		if(hoje <= data){
-			var returnData = "data certa";
+			var returnData = "dc correta";
 		} else if(hoje > data){
-			var returnData = "data passada";
+			var returnData = "da não é possível";
 		} else {
-			var returnData = "data vazia";
+			var returnData = "dv inexistente";
 		}
 
 		var params = {
