@@ -90,8 +90,10 @@
 			contexid = convResults.context;
 			node = convResults.output.nodes_visited;
 
-			if(convResults.context.data || convResults.context.data == 'null'){
+			if(convResults.context.data){
 				data = convResults.context.data;
+			} else if(convResults.context.data == 'null') {
+				data = 'null';
 			}
 
 	        if (err) {
@@ -117,7 +119,7 @@
 	function sendMessageData(sender, data){
 		var hoje = new Date();
 		console.log("Hoje: " + hoje + ", Data: " + data);
-		
+
 		if(data){
 			var data = new Date(data);
 		} else {
