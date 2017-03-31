@@ -119,7 +119,7 @@
 		if(data){
 			var data = new Date(data);
 		} else {
-			var data = false;
+			var data = 'false';
 		}
 
 		console.log("Hoje: " + hoje + ", Data: " + data);
