@@ -94,7 +94,7 @@
 				data = convResults.context.data;
 			}
 
-			
+			console.log("Node: " + node);
 
 			if(convResults.output.nodes_visited === 'Checar a Data'){
 				console.log("Node: " + node);
