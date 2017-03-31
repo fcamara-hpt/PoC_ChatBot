@@ -123,6 +123,7 @@
 		var auxiliar = hoje.split("/");
 		var hoje = new Date(auxiliar[2], auxiliar[1] - 1, auxiliar[0]);*/
 		var hoje = moment().format('YYYY[-]MM[-]DD');
+		var data = moment().format(date);
 		console.log("\nHoje: " + hoje + ", Data: " + data);
 
 		if(hoje <= data){
@@ -132,8 +133,6 @@
 		} else {
 			var returnData = "dv inexistente";
 		}
-
-		console.log("returnData: " + returnData);
 
 		var params = {
 			input: returnData,
