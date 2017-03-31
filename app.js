@@ -91,9 +91,10 @@
 			node = convResults.output.nodes_visited;
 			if(convResults.context.data){
 				data = convResults.context.data;
+				console.log("Fora Data: " + data);
 			}
 
-			console.log("Fora Data: " + data);
+
 			if(convResults.output.nodes_visited === "Checar a Data"){
 				console.log("Node: " + node);
 
