@@ -122,7 +122,7 @@
 
 		if(dd<10){
 		    dd='0'+dd;
-		} 
+		}
 		if(mm<10){
 		    mm='0'+mm;
 		}
@@ -133,7 +133,7 @@
 		if(hoje <= data){
 			var returnData = "dc correta";
 		} else if(hoje > data){
-			var returnData = "da não é possível";
+			var returnData = "da anterior";
 		} else {
 			var returnData = "dv inexistente";
 		}
