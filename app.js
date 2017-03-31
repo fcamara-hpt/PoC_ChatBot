@@ -119,7 +119,7 @@
 	}
 
 	function sendMessageData(sender, data){
-
+		var data = moment(data).format('YYYY[-]MM[-]DD');
 		var hoje = moment().format('YYYY[-]MM[-]DD');
 		console.log("\nHoje: " + hoje + ", Data: " + data);
 
