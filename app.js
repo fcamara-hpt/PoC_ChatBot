@@ -90,7 +90,7 @@
 			contexid = convResults.context;
 			node = convResults.output.nodes_visited;
 
-			if(convResults.context.data == true || convResults.context.data == 'null'){
+			if(convResults.context.data || convResults.context.data == 'null'){
 				data = convResults.context.data;
 			}
 
