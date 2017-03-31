@@ -119,6 +119,7 @@
 
 	function sendMessageData(sender, data){
 		var hoje = new Date();
+		var hoje = new Date(hoje.format('yyyy-MM-dd'));
 		console.log("\nHoje: " + hoje + ", Data: " + data);
 
 		if(data){
