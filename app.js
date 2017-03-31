@@ -120,9 +120,9 @@
 		if(hoje <= data){
 			var returnData = "data certa";
 		} else if(hoje > data){
-			var returnData = "data antiga";
+			var returnData = "data passada";
 		} else {
-			var returnData = "data incorreta";
+			var returnData = "data vazia";
 		}
 
 		var params = {
@@ -143,7 +143,7 @@
 				payload.context = params.context;
 			}
 		}
-		
+
 		callWatson(payload, sender);
 	}
 
