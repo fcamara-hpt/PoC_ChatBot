@@ -75,7 +75,6 @@
 				}
 				if (params.context) {
 					payload.context = params.context;
-					console.log("payload.context: " + payload.context);
 				}
 			}
 
@@ -90,6 +89,9 @@
 
 			contexid = convResults.context;
 			node = convResults.output.nodes_visited;
+			if(convResults.context.data){
+				data = convResults.context.data;
+			}
 
 	        if (err) {
 	            return responseToRequest.send("Erro.");
@@ -100,18 +102,27 @@
 	        if(convResults != null && convResults.output != null){
 				var i = 0;
 				while(i < convResults.output.text.length){
-					sendMessage(sender, convResults.output.text[i++], node);
+					if(node === "Checar a Data"){
+						sendMessageData(sender, data);
+					} else {
+						sendMessage(sender, convResults.output.text[i++], node);
+					}
+
 				}
 			}
 
 	    });
 	}
 
+	function sendMessageData(sender, data){
+		var hoje = new Data();
+		console.log("Hoje: " + hoje);
+		console.log("Data: " + data);
+	}
+
 	function sendMessage(sender, text_, node) {
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
-		text_sigla = text_.substring(0,3);
-		text_data = text_.substring(0,9);
 
 		console.log("\nText_: " + text_ + " + Tamanho de text_: " + text_.length + " + Sender: " + sender);
 
