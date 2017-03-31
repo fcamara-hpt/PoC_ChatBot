@@ -92,8 +92,7 @@
 
 			if(convResults.context.data){
 				data = convResults.context.data;
-			} else if(convResults.context.data == 'null') {
-				console.log(convResults.context.data);
+			} else {
 				data = 'null';
 				console.log(data);
 			}
