@@ -117,6 +117,8 @@
 	function sendMessageData(sender, data){
 		var hoje = new Date();
 
+		console.log("Hoje: " + hoje + ", Data: " + data);
+
 		if(hoje <= data){
 			var returnData = "dc correta";
 		} else if(hoje > data){
