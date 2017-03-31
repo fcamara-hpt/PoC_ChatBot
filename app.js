@@ -116,6 +116,8 @@
 
 	function sendMessageData(sender, data){
 		var hoje = new Date();
+		console.log("Hoje: " + hoje + ", Data: " + data);
+		
 		if(data){
 			var data = new Date(data);
 		} else {
@@ -347,7 +349,7 @@
 				break;
 			}
 			case 'data': {
-				messageData = { text: "Quando deseja viajar? (Ex: 25/07/2017)"};
+				messageData = { text: "Quando deseja viajar? (Ex: 25/07/2017, verifique se é uma data futura!)"};
 
 				sendRequest(messageData);
 			  break;
