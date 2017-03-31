@@ -95,7 +95,9 @@
 
 			console.log("Node: " + node);
 			if(node === "Checar a Data"){
-				sendMessageData(sender, data);
+				var hoje = new Data();
+				console.log("Hoje: " + hoje);
+				console.log("Data: " + data);
 			}
 	        if (err) {
 	            return responseToRequest.send("Erro.");
@@ -120,6 +122,7 @@
 		var hoje = new Data();
 		console.log("Hoje: " + hoje);
 		console.log("Data: " + data);
+
 
 	}
 
