@@ -93,7 +93,9 @@
 			if(convResults.context.data){
 				data = convResults.context.data;
 			} else if(convResults.context.data == 'null') {
+				console.log(convResults.context.data);
 				data = 'null';
+				console.log(data);
 			}
 
 	        if (err) {
@@ -118,7 +120,7 @@
 
 	function sendMessageData(sender, data){
 		var hoje = new Date();
-		console.log("Hoje: " + hoje + ", Data: " + data);
+		console.log("\nHoje: " + hoje + ", Data: " + data);
 
 		if(data){
 			var data = new Date(data);
