@@ -93,7 +93,7 @@
 			if(convResults.context.data){
 				data = convResults.context.data;
 			}
-			
+
 	        if (err) {
 	            return responseToRequest.send("Erro.");
 	        }
@@ -125,12 +125,25 @@
 			var returnData = "data incorreta";
 		}
 
-		var payload = {
-			workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2",
+		var params = {
 			input: returnData,
 			context:contexid
 		};
 
+		var payload = {
+			workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
+		};
+
+		if (params) {
+			if (params.input) {
+				params.input = params.input.replace("\n","");
+				payload.input = { "text": params.input };
+			}
+			if (params.context) {
+				payload.context = params.context;
+			}
+		}
+		
 		callWatson(payload, sender);
 	}
 
