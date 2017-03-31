@@ -118,6 +118,7 @@
 		var hoje = new Data();
 		console.log("Hoje: " + hoje);
 		console.log("Data: " + data);
+		
 	}
 
 	function sendMessage(sender, text_, node) {
