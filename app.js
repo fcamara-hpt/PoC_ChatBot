@@ -93,7 +93,7 @@
 				data = convResults.context.data;
 			}
 
-			if(node === "Checar a Data"){
+			if(convResults.output.nodes_visited === "Checar a Data"){
 				console.log("Node: " + node);
 				var hoje = new Data();
 				console.log("Hoje: " + hoje);
