@@ -2,6 +2,7 @@
 	var request = require('request');
 	var bodyParser = require('body-parser');
 	var watson = require('watson-developer-cloud');
+	var moment = require('moment-precise-range-plugin');
 	var app = express();
 	var contexid = "";
 
