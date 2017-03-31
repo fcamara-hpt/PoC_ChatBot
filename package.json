@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Chatbot Watson for Messenger",
   "engines": {
-    "node": "5.9.1"
+    "node": "4.x"
   },
   "private": true,
   "main": "app.js",
@@ -16,6 +16,7 @@
     "ejs": "2.4.1",
     "express": "4.13.4",
     "htmlparser": "1.7.7",
+    "moment": "^2.18.1",
     "request": "2.72.0",
     "watson-developer-cloud": "2.27.1"
   },
@@ -25,8 +26,5 @@
     "heroku",
     "express"
   ],
-  "engines": {
-    "node": "4.x"
-  },
   "license": "MIT"
 }
