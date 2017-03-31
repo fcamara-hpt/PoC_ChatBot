@@ -128,7 +128,7 @@
 		}
 		var hoje = yyyy + '-' + mm + '-' + dd; */
 
-		console.log("Hoje: " + hoje + ", Data: " + data);
+		console.log("Hoje: " + hoje + ", Data: " + data.toString());
 
 		if(hoje.toString() <= data){
 			var returnData = "dc correta";
