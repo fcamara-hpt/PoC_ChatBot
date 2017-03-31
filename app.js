@@ -68,7 +68,6 @@
 				workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
 			};
 
-
 			if (params) {
 				if (params.input) {
 					params.input = params.input.replace("\n","");
@@ -76,6 +75,7 @@
 				}
 				if (params.context) {
 					payload.context = params.context;
+					console.log("payload.context: " + payload.context);
 				}
 			}
 
