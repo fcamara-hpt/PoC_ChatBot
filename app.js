@@ -116,7 +116,6 @@
 
 	function sendMessageData(sender, data){
 		var hoje = new Date();
-		var data = Date(data);
 		/* var dd = hoje.getDate();
 		var mm = hoje.getMonth()+1;
 		var yyyy = hoje.getFullYear();
@@ -131,7 +130,7 @@
 
 		console.log("Hoje: " + hoje + ", Data: " + data);
 
-		if(hoje <= data){
+		if(hoje.toString() <= data){
 			var returnData = "dc correta";
 		} else if(hoje > data){
 			var returnData = "da anterior";
