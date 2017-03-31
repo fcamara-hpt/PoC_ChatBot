@@ -125,14 +125,6 @@
 		var hoje = moment().format('YYYY[-]MM[-]DD');
 		console.log("\nHoje: " + hoje + ", Data: " + data);
 
-		if(data){
-			var data = new Date(data);
-		} else {
-			var data = new Date('0000-00-00');
-		}
-
-		console.log("Hoje: " + hoje + ", Data: " + data);
-
 		if(hoje <= data){
 			var returnData = "dc correta";
 		} else if(hoje > data){
