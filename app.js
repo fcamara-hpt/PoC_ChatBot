@@ -102,7 +102,7 @@
 	        if(convResults != null && convResults.output != null){
 				var i = 0;
 				while(i < convResults.output.text.length){
-					if(node === "Checar a Data"){
+					if(node === "Perguntar Data"){
 						sendMessageData(sender, data);
 					} else {
 						sendMessage(sender, convResults.output.text[i++], node);
@@ -118,7 +118,7 @@
 		var hoje = new Data();
 		console.log("Hoje: " + hoje);
 		console.log("Data: " + data);
-		
+
 	}
 
 	function sendMessage(sender, text_, node) {
