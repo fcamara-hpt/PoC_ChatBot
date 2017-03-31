@@ -93,12 +93,13 @@
 				data = convResults.context.data;
 			}
 
-			console.log("Node: " + node);
 			if(node === "Checar a Data"){
+				console.log("Node: " + node);
 				var hoje = new Data();
 				console.log("Hoje: " + hoje);
 				console.log("Data: " + data);
 			}
+
 	        if (err) {
 	            return responseToRequest.send("Erro.");
 	        }
