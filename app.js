@@ -116,19 +116,11 @@
 
 	function sendMessageData(sender, data){
 		var hoje = new Date();
-		var data = new Date(data);
-		/* var dd = hoje.getDate();
-		var mm = hoje.getMonth()+1;
-		var yyyy = hoje.getFullYear();
-
-		if(dd<10){
-		    dd='0'+dd;
+		if(data){
+			var data = new Date(data);
+		} else {
+			var data = false;
 		}
-		if(mm<10){
-		    mm='0'+mm;
-		}
-		var hoje = yyyy + '-' + mm + '-' + dd; */
-
 
 		console.log("Hoje: " + hoje + ", Data: " + data);
 
