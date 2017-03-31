@@ -93,6 +93,9 @@
 				data = convResults.context.data;
 			}
 
+			if(node === "Checar a Data"){
+				sendMessageData(sender, data);
+			}
 	        if (err) {
 	            return responseToRequest.send("Erro.");
 	        }
@@ -102,11 +105,9 @@
 	        if(convResults != null && convResults.output != null){
 				var i = 0;
 				while(i < convResults.output.text.length){
-					if(node === "Checar a Data"){
-						sendMessageData(sender, data);
-					} else {
+
 						sendMessage(sender, convResults.output.text[i++], node);
-					}
+
 
 				}
 			}
