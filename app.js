@@ -133,6 +133,8 @@
 			var returnData = "dv inexistente";
 		}
 
+		console.log("returnData: " + returnData);
+
 		var params = {
 			input: returnData,
 			context:contexid
