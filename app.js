@@ -93,11 +93,11 @@
 				data = convResults.context.data;
 			}
 
+			console.log("Fora Data: " + data);
 			if(convResults.output.nodes_visited === "Checar a Data"){
 				console.log("Node: " + node);
-				var hoje = new Data();
-				console.log("Hoje: " + hoje);
-				console.log("Data: " + data);
+
+				console.log("Dentro Data: " + data);
 			}
 
 	        if (err) {
