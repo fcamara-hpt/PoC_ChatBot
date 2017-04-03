@@ -153,10 +153,11 @@
 		callWatson(payload, sender);
 	}
 
-	function sendMessage(sender, text_, node, data) {
+	function sendMessage(sender, text_, node, data2) {
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
-		data = data.toLocaleDateString();
+		var data = new Date();
+		date = date2.toLocaleDateString();
 
 		console.log("\nText_: " + text_ + ", Tamanho de text_: " + text_.length + ", Sender: " + sender + ", Data: " + data);
 
