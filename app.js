@@ -110,7 +110,7 @@
 							sendMessageData(sender, data);
 				} else {
 					while(i < convResults.output.text.length){
-							sendMessage(sender, convResults.output.text[i++], node);
+							sendMessage(sender, convResults.output.text[i++], node, data);
 					}
 				}
 			}
@@ -153,7 +153,7 @@
 		callWatson(payload, sender);
 	}
 
-	function sendMessage(sender, text_, node) {
+	function sendMessage(sender, text_, node, data) {
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
 
@@ -265,7 +265,7 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Oferta TAM Rio de Janeiro:",
+					    	"title": "Oferta TAM Rio de Janeiro para " + data + ":",
 					    	"subtitle": "R$ 130 + encargos (R$ 100)",
 					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
@@ -275,7 +275,7 @@
 					    }],
 					    },
 					    {
-					    	"title": "Oferta Azul Rio de Janeiro:",
+					    	"title": "Oferta Azul Rio de Janeiro para " + data + ":",
 					    	"subtitle": "R$ 162 + encargos (R$ 89)",
 					    	"image_url": "http://cdn.panrotas.com.br/media-files-original/2015/11/24/azul2811144.jpg",
 						    "buttons": [{
@@ -285,7 +285,7 @@
 					    }],
 					    },
 					     {
-					    	"title": "Oferta Aviança Rio de Janeiro:",
+					    	"title": "Oferta Aviança Rio de Janeiro para " + data + ":",
 					    	"subtitle": "R$ 162 + encargos (R$ 100)",
 					    	"image_url": "http://ww2.baguete.com.br/admin//cache/image/noticias/2016/03/1459435265_Avianca.jpg",
 						    "buttons": [{
@@ -309,7 +309,7 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Oferta TAM São Paulo:",
+					    	"title": "Oferta TAM São Paulo para " + data + ":",
 					    	"subtitle": "R$ 130 + encargos (R$ 100)",
 					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
@@ -319,7 +319,7 @@
 					    }],
 					    },
 					    {
-					    	"title": "Oferta Azul São Paulo:",
+					    	"title": "Oferta Azul São Paulo para " + data + ":",
 					    	"subtitle": "R$ 162 + encargos (R$ 89)",
 					    	"image_url": "http://cdn.panrotas.com.br/media-files-original/2015/11/24/azul2811144.jpg",
 						    "buttons": [{
@@ -329,7 +329,7 @@
 					    }],
 					    },
 					     {
-					    	"title": "Oferta Aviança São Paulo:",
+					    	"title": "Oferta Aviança São Paulo para " + data + ":",
 					    	"subtitle": "R$ 162 + encargos (R$ 100)",
 					    	"image_url": "http://ww2.baguete.com.br/admin//cache/image/noticias/2016/03/1459435265_Avianca.jpg",
 						    "buttons": [{
@@ -351,6 +351,12 @@
 				sendRequest(messageData);
 			  break;
 			}
+			case 'desconhecido': {
+				messageData = { text: "Desculpe, não entendi o que quis dizer. Estamos te redirecionando para o início do atendimento."};
+
+				sendRequest(messageData);
+			  break;
+			}
 			default:
 		}
 
@@ -363,7 +369,7 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Perfeito, veja essas passagens para " + node + ":",
+					    	"title": "Perfeito, veja essas passagens para " + node + " dia" + data + ":",
 					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 						    "buttons": [{
 						    "type": "web_url",
