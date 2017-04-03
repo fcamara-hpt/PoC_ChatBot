@@ -9,6 +9,7 @@
 
 	var mongoose = require('mongoose');
 	mongoose.connect('mongodb://rafael:fcamara123@ds060369.mlab.com:60369/db_booktogo');
+	var conversas = mongoose.model('conversas', {senderID: String, conversationID: String});
 
 	app.set('port', (process.env.PORT || 3000));
 	app.use(express.static(__dirname + '/public'));
