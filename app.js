@@ -372,7 +372,7 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Perfeito, veja essas passagens em " + data + " para " + node + ":",
+					    	"title": "Perfeito, veja essas passagens para " + node + " em " + data + ":",
 					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 						    "buttons": [{
 						    "type": "web_url",
