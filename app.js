@@ -157,7 +157,7 @@
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
 		var data = new Date();
-		date = date2.toLocaleDateString();
+		data = date2.toLocaleDateString();
 
 		console.log("\nText_: " + text_ + ", Tamanho de text_: " + text_.length + ", Sender: " + sender + ", Data: " + data);
 
