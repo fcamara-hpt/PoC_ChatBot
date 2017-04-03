@@ -64,7 +64,7 @@
 
 			conversas.find(function (err, conversas) {
 			  if (err) return console.error(err);
-			  console.log(conversas);
+			  console.log(conversas.senderID);
 			})
 
 			var params = {
