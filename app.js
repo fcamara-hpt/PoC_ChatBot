@@ -5,6 +5,7 @@
 	var moment = require('moment');
 	var app = express();
 	var contexid = "";
+	moment.locale('pt-BR');
 
 	app.set('port', (process.env.PORT || 3000));
 	app.use(express.static(__dirname + '/public'));
