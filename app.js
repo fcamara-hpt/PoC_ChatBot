@@ -62,9 +62,9 @@
 				break;
 			}
 
-			conversas.find(function (err, conversas) {
+			conversas.find({'senderID':'1234567890123456'} ,function (err, conversas) {
 			  if (err) return console.error(err);
-			  console.log(conversas.senderID);
+			  console.log('$s', conversas.senderID);
 			})
 
 			var params = {
