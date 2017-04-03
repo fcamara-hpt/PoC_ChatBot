@@ -7,6 +7,9 @@
 	var contexid = "";
 	moment.locale('pt-BR');
 
+	var mongoose = require('mongoose');
+	mongoose.connect('mongodb://rafael:fcamara123@ds060369.mlab.com:60369/db_booktogo');
+
 	app.set('port', (process.env.PORT || 3000));
 	app.use(express.static(__dirname + '/public'));
 	app.use(bodyParser.urlencoded({ extended: false }));
@@ -58,9 +61,13 @@
 				break;
 			}
 
+			conversas.find(function (err, conversas) {
+			  if (err) return console.error(err);
+			  console.log(conversas);
+			})
+
 			var params = {
 				input: text,
-				// context: {"conversation_id": conversation_id}
 				context:contexid
 			};
 
