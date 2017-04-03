@@ -64,6 +64,7 @@
 
 			conversas.find({'senderID':'1234567890123456'} ,function (err, conversas) {
 			  if (err) return console.error(err);
+				conversas = conversas.conversation_id;
 			  console.log(conversas);
 			})
 
