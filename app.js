@@ -157,7 +157,7 @@
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
 		if(data2 != 'null' && data2){
-			var data = moment(date2).format('L');
+			var data = moment(data2).format('L');
 		}
 
 		console.log("\nText_: " + text_ + ", Tamanho de text_: " + text_.length + ", Sender: " + sender + ", Data: " + data);
