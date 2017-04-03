@@ -156,7 +156,7 @@
 	function sendMessage(sender, text_, node, data2) {
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
-		if(data != 'null' && data){
+		if(data2 != 'null' && data2){
 			var data = moment(date2).format('L');
 		}
 
