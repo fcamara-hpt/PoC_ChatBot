@@ -156,8 +156,8 @@
 	function sendMessage(sender, text_, node, data2) {
 		text_ = text_.substring(0, 319);
 		text2 = text_.substring(0, 4);
-		var data = new Date();
-		data = date2.toLocaleDateString();
+		var data = new Date(data2);
+		data = data.toLocaleDateString();
 
 		console.log("\nText_: " + text_ + ", Tamanho de text_: " + text_.length + ", Sender: " + sender + ", Data: " + data);
 
