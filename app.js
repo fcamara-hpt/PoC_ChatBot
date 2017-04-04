@@ -169,7 +169,7 @@
 		if(data2 != 'null' && data2){
 			var data = moment(data2).format('L');
 		}
-		text3 = text_.substring(6,8);
+		text3 = text_.substring(5,8);
 
 		console.log("\ntext_: " + text_ + ", text2: " + text2 + ", text3: " + text3 + ", Data: " + data + ", Data2: " + data2);
 
