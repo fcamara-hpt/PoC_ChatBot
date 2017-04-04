@@ -17,9 +17,9 @@
     "express": "4.13.4",
     "htmlparser": "1.7.7",
     "moment": "2.18.1",
+    "mongoq": "0.2.5",
     "request": "2.72.0",
-    "watson-developer-cloud": "2.27.1",
-    "mongoq": "0.2.5"
+    "watson-developer-cloud": "2.27.1"
   },
   "repository": {},
   "keywords": [

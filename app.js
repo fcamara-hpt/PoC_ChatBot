@@ -62,11 +62,11 @@
 				break;
 			}
 
-			conversas.find({'senderID':'1234567890123456'} ,function (err, conversas) {
+			/*conversas.find({'senderID':'1234567890123456'} ,function (err, conversas) {
 			  if (err) return console.error(err);
 				conversas = conversas.conversationID;
 			  console.log(conversas);
-			})
+			})*/
 
 			var params = {
 				input: text,
@@ -169,8 +169,9 @@
 		if(data2 != 'null' && data2){
 			var data = moment(data2).format('L');
 		}
+		text3 = text_.substring(6,8);
 
-		console.log("\nText_: " + text_ + ", Tamanho de text_: " + text_.length + ", Sender: " + sender + ", Data: " + data);
+		console.log("\ntext_: " + text_ + ", text2: " + text2 + ", text3: " + text3 + ", Data: " + data + ", Data2: " + data2);
 
 		switch(text_){
 			case 'inicio_mensagem': {
@@ -278,12 +279,12 @@
 				    "payload": {
 						"template_type": "generic",
 					    "elements": [{
-					    	"title": "Oferta TAM em " + data + " para Rio de Janeiro:",
+					    	"title": "Oferta em " + data + " para Rio de Janeiro:",
 					    	"subtitle": "R$ 130 + encargos (R$ 100)",
 					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/4472f2a53c6742a1b516aa6247fe3767",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data2 + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    },
@@ -327,7 +328,7 @@
 					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/ab5ceddbd4a34251abd0556df7b1ff7c",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data2 + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    },
@@ -374,8 +375,7 @@
 		}
 
 
-
-		if(text2 === "http"){
+		if(text2 === "iata"){
 			messageData = {
 			    "attachment": {
 				    "type": "template",
@@ -386,7 +386,7 @@
 					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": text_,
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/" + text3 + "/" + data2 + "/1/0/0",
 						    "title": "Pesquisar Voos"
 					    }],
 					    }]
