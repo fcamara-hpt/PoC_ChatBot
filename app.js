@@ -393,7 +393,6 @@
 				    }
 			    }
 		    };
-
 			sendRequest(messageData);
 		}
 	}
