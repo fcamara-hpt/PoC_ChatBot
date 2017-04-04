@@ -7,10 +7,6 @@
 	var contexid = "";
 	moment.locale('pt-BR');
 
-	var mongoose = require('mongoose');
-	mongoose.connect('mongodb://rafael:fcamara123@ds060369.mlab.com:60369/db_booktogo');
-	var conversas = mongoose.model('conversas', {senderID: String, conversationID: String});
-
 	app.set('port', (process.env.PORT || 3000));
 	app.use(express.static(__dirname + '/public'));
 	app.use(bodyParser.urlencoded({ extended: false }));
@@ -62,18 +58,10 @@
 				break;
 			}
 
-			/*conversas.find({'senderID':'1234567890123456'} ,function (err, conversas) {
-			  if (err) return console.error(err);
-				conversas = conversas.conversationID;
-			  console.log(conversas);
-			})*/
-
 			var params = {
 				input: text,
 				context:contexid
 			};
-
-			console.log("\nSender: " + sender + ", text: " + text + ", contexid: " + params.context + "\n");
 
 			var payload = {
 				workspace_id: "d4703e1c-464c-4a13-a458-7e401f80e0d2"
@@ -163,17 +151,15 @@
 		callWatson(payload, sender);
 	}
 
-	function sendMessage(sender, text_, node, data2) {
-		text_ = text_.substring(0, 319);
-		text2 = text_.substring(0, 4);
-		if(data2 != 'null' && data2){
-			var data = moment(data2).format('L');
+	function sendMessage(sender, text_, node, data_watson) {
+		text_watson = text_.substring(0, 319);
+		check_iata = text_.substring(0, 4);
+		if(data_watson != 'null' && data_watson){
+			var data = moment(data_watson).format('L');
 		}
-		text3 = text_.substring(5,8);
+		iata = text_.substring(5,8);
 
-		console.log("\ntext_: " + text_ + ", text2: " + text2 + ", text3: " + text3 + ", Data: " + data + ", Data2: " + data2);
-
-		switch(text_){
+		switch(text_watson){
 			case 'inicio_mensagem': {
 				messageData = {
 			    "attachment": {
@@ -284,7 +270,7 @@
 					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data2 + "/1/0/0",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data_watson + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    },
@@ -294,7 +280,7 @@
 					    	"image_url": "http://cdn.panrotas.com.br/media-files-original/2015/11/24/azul2811144.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data2 + "/1/0/0",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data_watson + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    },
@@ -304,7 +290,7 @@
 					    	"image_url": "http://ww2.baguete.com.br/admin//cache/image/noticias/2016/03/1459435265_Avianca.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data2 + "/1/0/0",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data_watson + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    }]
@@ -328,7 +314,7 @@
 					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data2 + "/1/0/0",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data_watson + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    },
@@ -338,7 +324,7 @@
 					    	"image_url": "http://cdn.panrotas.com.br/media-files-original/2015/11/24/azul2811144.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data2 + "/1/0/0",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data_watson + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    },
@@ -348,7 +334,7 @@
 					    	"image_url": "http://ww2.baguete.com.br/admin//cache/image/noticias/2016/03/1459435265_Avianca.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data2 + "/1/0/0",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data_watson + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    }]
@@ -375,7 +361,7 @@
 		}
 
 
-		if(text2 === "iata"){
+		if(check_iata === "iata"){
 			messageData = {
 			    "attachment": {
 				    "type": "template",
@@ -386,7 +372,7 @@
 					    	"image_url": "http://demasiadohumano.com/wp-content/uploads/2016/08/aviao-voando.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/" + text3 + "/" + data2 + "/1/0/0",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/" + iata + "/" + data_watson + "/1/0/0",
 						    "title": "Pesquisar Voos"
 					    }],
 					    }]
