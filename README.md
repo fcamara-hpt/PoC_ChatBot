@@ -76,10 +76,10 @@ Conversation permite exportar e importar workspaces(dialogs). Para facilitar a e
 ## Rodando Chatbot
 ### Passos necessários:
 Será necessário trocar algumas informações no aquirvo "app.js": 
-*Alterar <USER> e <PASSWORD> do conversation para sua respectiva conta criada;
-*Alterar <WORKSPACE_ID> pelo workspace_id, clicando em view detail no workspace que fo importado(no https://www.ibmwatsonconversation.com) ;
-*Alterar <SENHA_DE_VERIFICAÇÃO> por uma possa usar futuramente para configurar Webhook no developers facebook;
-*Alterar <PAGE_ACCESS_TOKEN> pelo token que será disponibilização para sua página. Você irá encontrar em "token generation" no 
+* Alterar <USER> e <PASSWORD> do conversation para sua respectiva conta criada;
+* Alterar <WORKSPACE_ID> pelo workspace_id, clicando em view detail no workspace que fo importado(no https://www.ibmwatsonconversation.com) ;
+* Alterar <SENHA_DE_VERIFICAÇÃO> por uma possa usar futuramente para configurar Webhook no developers facebook;
+* Alterar <PAGE_ACCESS_TOKEN> pelo token que será disponibilização para sua página. Você irá encontrar em "token generation" no 
 developers facebook.
 
 Crie uma instância no Heroku pelo terminal e coloque o código na nuvem:
