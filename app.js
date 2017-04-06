@@ -238,7 +238,7 @@
 						    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 							    "buttons": [{
 							    "type": "web_url",
-							    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/4472f2a53c6742a1b516aa6247fe3767",
+							    "url": "https://www.decolar.com/shop/flights/results/oneway/sao/rio/" + data_watson + "/1/0/0",
 							    "title": "Compre aqui"
 						    }],
 							}, {
@@ -247,7 +247,7 @@
 					    	"image_url": "http://www.folhavitoria.com.br/geral/blogs/folha-viagem/wp-content/uploads/2015/08/TALES.jpg",
 						    "buttons": [{
 						    "type": "web_url",
-						    "url": "https://www.decolar.com/book/flights/12d09d23/checkout/ab5ceddbd4a34251abd0556df7b1ff7c",
+						    "url": "https://www.decolar.com/shop/flights/results/oneway/rio/sao/" + data_watson + "/1/0/0",
 						    "title": "Compre aqui"
 					    }],
 					    }]
