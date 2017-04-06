@@ -71,7 +71,7 @@ Criar ou configurar um aplicativo ou página do Facebook aqui https://developers
 
 ### 4-Watson Conversation
 Será necessario criar uma conta no Bluemix IBM para acessar o Conversation: https://www.ibmwatsonconversation.com
-Conversation permite exportar e importar workspaces(dialogs). Para facilitar a execução do App, faço o import do workspace pronto contido na pasta em JSON.
+Conversation permite exportar e importar workspaces(dialogs). Para facilitar a execução do App, faça o import do workspace pronto contido na pasta em JSON.
 
 ## Rodando Chatbot
 ### Passos necessários:
@@ -104,4 +104,4 @@ solicitado anteriormente.
 Curl -X POST " https://graph.facebook.com/v2.6/me/subscribed_apps?access_token= <PAGE_ACCESS_TOKEN> "
 ```
 
-### Pronto, se realizado fielmente todos os passos listados até aqui, seu chatbot estará funcionando corretamente.
+### Pronto, se realizado fielmente todos os passos listados até aqui, seu chatbot estará funcionando corretamente!!!
