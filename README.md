@@ -38,11 +38,11 @@ problemas e desafogar as demandas por atendimento pessoal ou até mesmo em um at
 A utilização de chatbots acaba indo contra a humanização que as empresas estão buscando há algum tempo no contato com seus clientes. Por
 esse motivo é importante levar em consideração dois pontos principais:
 
-*Existência de casos em que só atedimento pessoal pode resolver: Em algumas situações, o contato pessoal é essencial para resolver o
+* Existência de casos em que só atedimento pessoal pode resolver: Em algumas situações, o contato pessoal é essencial para resolver o
 problema. Escutar o que o cliente tem a dizer continua sendo importantíssimo para a sua marca, não só para resolver questões pessoais,
 mas para se desenvolver. Por isso, é preciso encarar essas novas invenções como facilitadoras e não substitutas do trabalho humano. 
 
-*Existência de casos em que o cliente prefere o contato pessoal: Nesse caso, cabe mais uma vez o estudo do seu público para entender sua
+* Existência de casos em que o cliente prefere o contato pessoal: Nesse caso, cabe mais uma vez o estudo do seu público para entender sua
 familiaridade com tecnologia e o quanto ele está aberto para experimentar novas ferramentas.
 
 ## Pré-requisitos para criar Chatbot em Node js
@@ -91,17 +91,17 @@ heroku create
 git push heroku master
 ```
 #### Configurando o seu App do facebook
-1- Na página de desenvolvimento do seu App no Facebook clique em ‘Webhooks’, depois New Subscription e por último Page.
-2- Na parte da URL utilize o endereço da sua instância do Heroku. Aqui tem dois pontos que você deve ter atenção: o primeiro é usar 
+* Na página de desenvolvimento do seu App no Facebook clique em ‘Webhooks’, depois New Subscription e por último Page.
+* Na parte da URL utilize o endereço da sua instância do Heroku. Aqui tem dois pontos que você deve ter atenção: o primeiro é usar 
 https e o segundo é colocar o /webhook no final do endereço.
-3- No token de verificação utilize o token utilizado no seu código.
-4- Na parte de Subscription Fields você deve selecionar: messages,message_deliveries, messaging_options e messaging_postbacks.
-5- Nesta mesma página, na parte de "Webhooks", selecione a página que você criou para o seu app no campo “Select a page to subscribe your webhook to the page events”.
+* No token de verificação utilize o token utilizado no seu código.
+* Na parte de Subscription Fields você deve selecionar: messages,message_deliveries, messaging_options e messaging_postbacks.
+* Nesta mesma página, na parte de "Webhooks", selecione a página que você criou para o seu app no campo “Select a page to subscribe your webhook to the page events”.
 
 Volte para o Terminal e digite este comando para acionar o aplicativo do Facebook para enviar mensagens. Lembre-se de usar o token
- solicitado anteriormente.
+solicitado anteriormente.
 ```js
 Curl -X POST " https://graph.facebook.com/v2.6/me/subscribed_apps?access_token= <PAGE_ACCESS_TOKEN> "
 ```
 
-### Se realizado fielmente todos estes passos listados até aqui, seu chatbot estará funcionando corretamente.
+### Pronto, se realizado fielmente todos os passos listados até aqui, seu chatbot estará funcionando corretamente.
