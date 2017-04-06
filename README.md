@@ -1,6 +1,6 @@
 # PoC_ChatBot 
 ## Introdução
-Definitivamente 2016 é um ano marcante para os Chatbots. Foi o ano em que grandes empresas (como Facebook, Microsoft, Google e até mesmo
+O ano de 2016 foi um ano marcante para os chatbots, onde grandes empresas (como Facebook, Microsoft, Google e até mesmo
 a Apple) decidiram abrir as suas plataformas para que milhares de desenvolvedores / designers / startups / empresas criassem chatbots.
 Os chatbots nada mais são do que conversas automatizadas que acontecem em tempo real entre o computador e o usuário de determinado site,
 marca e etc. Ou seja, eles funcionam como assistentes virtuais que utilizam a inteligência artificial para dialogar com um interlocutor.
