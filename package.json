@@ -1,6 +1,8 @@
 {
   "name": "NodejsStarterApp",
-  "version": "0.0.1",
+  "author": "Gustavo Oliveira <gustavo.oliveira@fcamara.com.br>,
+             Rafael Lopes <rafael.lopes@fcamara.com.br>",
+  "version": "1.0.0",
   "description": "Chatbot Watson for Messenger",
   "engines": {
     "node": "4.x"
@@ -12,20 +14,17 @@
   },
   "dependencies": {
     "body-parser": "1.15.0",
-    "cfenv": "1.0.4",
-    "ejs": "2.4.1",
     "express": "4.13.4",
     "htmlparser": "1.7.7",
     "moment": "2.18.1",
-    "mongoq": "0.2.5",
     "request": "2.72.0",
     "watson-developer-cloud": "2.27.1"
   },
-  "repository": {},
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "watson"
   ],
   "license": "MIT"
 }
