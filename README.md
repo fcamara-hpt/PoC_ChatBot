@@ -108,5 +108,5 @@ Curl -X POST " https://graph.facebook.com/v2.6/me/subscribed_apps?access_token= 
 
 Em caso de dúvidas, entre em contato nos e-mails abaixo:
 
-Gustavo Oliveira <gustavo.oliveira@fcamara.com.br>
+Gustavo Oliveira <gustavo.oliveira@fcamara.com.br>,
 Rafael Lopes <rafael.lopes@fcamara.com.br>
