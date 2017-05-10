@@ -1,7 +1,17 @@
 {
-  "name": "Chatbot Watson for Messenger",
-  "author": "Gustavo Oliveira <gustavo.oliveira@fcamara.com.br>,
-             Rafael Lopes <rafael.lopes@fcamara.com.br>",
+  "name": "chatbot-watson-for-messenger",
+  "contributors": [
+    { 
+      "name": "Gustavo Oliveira",
+      "email": "gustavo.oliveira@fcamara.com.br",
+      "url": "https://github.com/GustavoOliveiraFC"
+    },
+    { 
+      "name": "Rafael Lopes",
+      "email": "rafael.lopes@fcamara.com.br",
+      "url": "https://github.com/rafaellopes96"
+    }
+  ],
   "version": "1.0.0",
   "description": "Chatbot Watson for Messenger",
   "engines": {
